@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Add Vendor PO</title>
+    
+<link href="<?php echo base_url(); ?>assets/jquery/cupertino/jquery.ui.all.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assets/css/CI_Project.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>assets/css/add_vendor_PO.css" rel="stylesheet">
+<script href="<?php echo base_url(); ?>assets/jquery/jquery-1.11.1.min.js"></script>
+<script href="<?php echo base_url(); ?>assets/jquery/jquery.ui.core.min.js"></script>
+<script href="<?php echo base_url(); ?>assets/jquery/jquery.ui.widget.min.js"></script>
+<script href="<?php echo base_url(); ?>assets/jquery/jquery.ui.datepicker.min.js"></script>
+<script>
+$(document).ready(function()
+{
+   var jQueryDatePicker1Opts =
+   {
+      dateFormat: 'yy/mm/dd',
+      changeMonth: false,
+      changeYear: false,
+      showButtonPanel: false,
+      showAnim: 'fadeIn'
+   };
+   $("#jQueryDatePicker1").datepicker(jQueryDatePicker1Opts);
+   $("#jQueryDatePicker1").datepicker("setDate", "new Date()");
+});
+</script>
+</head>
+<body>
+<div id="PageHeader1" style="position:absolute;overflow:hidden;text-align:left;left:0px;top:0px;width:100%;height:86px;z-index:31;">
+<div id="wb_Text1" style="position:absolute;left:92px;top:32px;width:115px;height:27px;z-index:0;text-align:left;">
+<span style="color:#FFFFFF;font-family:Arial;font-size:24px;">Welcome</span></div>
+<div id="wb_Image1" style="position:absolute;left:26px;top:17px;width:51px;height:56px;z-index:1;">
+<img src="<?php echo base_url(); ?>assets/images/uer.png" id="Image1" alt=""></div>
+<div id="wb_Text2" style="position:absolute;left:207px;top:30px;width:115px;height:29px;z-index:2;text-align:left;">
+<span style="color:#FFFFFF;font-family:Arial;font-size:24px;"><strong>USER</strong></span></div>
+<div id="wb_Image2" style="position:absolute;left:1296px;top:17px;width:54px;height:52px;z-index:3;">
+<img src="<?php echo base_url(); ?>assets/images/4509ba2b6663b1e81748e24eb16204d2-cross.png" id="Image2" alt=""></div>
+<div id="wb_Text3" style="position:absolute;left:1221px;top:32px;width:115px;height:22px;z-index:4;text-align:left;">
+<span style="color:#FFFFFF;font-family:Arial;font-size:19px;">Logout</span></div>
+</div>
+<div id="wb_Form1" style="position:absolute;left:406px;top:103px;width:592px;height:535px;z-index:30;">
+<form name="CustomerDetails" method="post" action="" enctype="multipart/form-data" id="Form1">
+<div id="wb_Image6" style="position:absolute;left:68px;top:19px;width:78px;height:78px;z-index:5;">
+<img src="<?php echo base_url(); ?>assets/images/people.png" id="Image6" alt=""></div>
+<input type="text" id="Editbox1" style="position:absolute;left:160px;top:123px;width:60px;height:23px;line-height:23px;z-index:6;" name="Editbox1" value="" tabindex="1" placeholder="ID">
+<input type="text" id="Editbox2" style="position:absolute;left:160px;top:153px;width:368px;height:23px;line-height:23px;z-index:7;" name="Editbox2" value="" tabindex="2" placeholder="Vendor Purchase Order Number">
+<textarea name="TextArea1" id="TextArea1" style="position:absolute;left:159px;top:218px;width:368px;height:98px;z-index:8;" rows="5" cols="58" tabindex="4" placeholder="Description"></textarea>
+<div id="wb_Text4" style="position:absolute;left:58px;top:123px;width:92px;height:18px;z-index:9;text-align:left;">
+<span style="color:#263238;font-family:Arial;font-size:16px;">ID</span></div>
+<div id="wb_Text5" style="position:absolute;left:58px;top:153px;width:92px;height:18px;z-index:10;text-align:left;">
+<span style="color:#263238;font-family:Arial;font-size:16px;">V PO No.</span></div>
+<div id="wb_Text6" style="position:absolute;left:57px;top:218px;width:92px;height:18px;z-index:11;text-align:left;">
+<span style="color:#263238;font-family:Arial;font-size:16px;">Item Desc.</span></div>
+<div id="wb_Text12" style="position:absolute;left:56px;top:404px;width:92px;height:18px;z-index:12;text-align:left;">
+<span style="color:#263238;font-family:Arial;font-size:16px;">Cust. Name</span></div>
+<input type="submit" id="Button1" name="" value="Submit" style="position:absolute;left:158px;top:468px;width:370px;height:39px;z-index:13;" tabindex="8">
+<input type="reset" id="Button2" name="" value="Reset" style="position:absolute;left:56px;top:468px;width:92px;height:39px;z-index:14;" tabindex="9">
+<div id="wb_Text13" style="position:absolute;left:143px;top:16px;width:394px;height:80px;text-align:center;z-index:15;">
+<span style="color:#263238;font-family:Arial;font-size:35px;">ADD CUSTOMER PURCHASE ORDER</span></div>
+<hr id="Line1" style="position:absolute;left:0px;top:104px;width:592px;height:1px;z-index:16;">
+<div id="wb_Image4" style="position:absolute;left:121px;top:57px;width:33px;height:39px;z-index:17;">
+<img src="<?php echo base_url(); ?>assets/images/PO-icon.png" id="Image4" alt=""></div>
+<select name="Combobox1" size="1" id="Combobox1" style="position:absolute;left:158px;top:401px;width:370px;height:25px;z-index:18;" tabindex="7">
+</select>
+<div id="wb_Text7" style="position:absolute;left:58px;top:327px;width:92px;height:18px;z-index:19;text-align:left;">
+<span style="color:#263238;font-family:Arial;font-size:16px;">Email</span></div>
+<input type="text" id="jQueryDatePicker1" style="position:absolute;left:158px;top:364px;width:97px;height:21px;line-height:21px;z-index:20;" name="jQueryDatePicker1" value="2017/05/22" tabindex="6">
+<div id="wb_Text8" style="position:absolute;left:278px;top:370px;width:169px;height:16px;z-index:21;text-align:left;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">(YYYY / MM / DD)</span></div>
+<div id="wb_Text9" style="position:absolute;left:57px;top:185px;width:92px;height:18px;z-index:22;text-align:left;">
+<span style="color:#263238;font-family:Arial;font-size:16px;">Amount</span></div>
+<input type="text" id="Editbox3" style="position:absolute;left:194px;top:184px;width:124px;height:23px;line-height:23px;z-index:23;" name="Editbox2" value="" tabindex="3" placeholder="Amount">
+<div id="wb_Image5" style="position:absolute;left:160px;top:185px;width:29px;height:25px;z-index:24;">
+<img src="<?php echo base_url(); ?>assets/images/rslogo.png" id="Image5" alt=""></div>
+<input type="text" id="Editbox4" style="position:absolute;left:159px;top:327px;width:368px;height:23px;line-height:23px;z-index:25;" name="Editbox4" value="" tabindex="5" placeholder="Email">
+<div id="wb_Text10" style="position:absolute;left:58px;top:368px;width:92px;height:18px;z-index:26;text-align:left;">
+<span style="color:#263238;font-family:Arial;font-size:16px;">Date</span></div>
+<div id="wb_Text11" style="position:absolute;left:57px;top:436px;width:92px;height:18px;z-index:27;text-align:left;">
+<span style="color:#263238;font-family:Arial;font-size:16px;">C PO No.</span></div>
+<select name="Combobox1" size="1" id="Combobox2" style="position:absolute;left:159px;top:433px;width:370px;height:25px;z-index:28;" tabindex="7">
+</select>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+body
+{
+   background-color: #FFFFFF;
+   background-image: url(../images/materialdesignWallpaper09.jpg);
+   background-attachment: fixed;
+   background-position: center center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   color: #000000;
+   font-family: Roboto;
+   font-weight: normal;
+   font-size: 13px;
+   line-height: 1.1875;
+   margin: 0;
+   padding: 0;
+}
+#Shape1
+{
+   border-width: 0;
+   -webkit-animation: animate-fade-in 800ms linear 0ms 1 normal;
+   -moz-animation: animate-fade-in 800ms linear 0ms 1 normal;
+   -ms-animation: animate-fade-in 800ms linear 0ms 1 normal;
+   animation: animate-fade-in 800ms linear 0ms 1 normal;
+}
+#Editbox1
+{
+   border: 1px #A9A9A9 solid;
+   background-color: #FFFFFF;
+   color :#000000;
+   font-family: Roboto;
+   font-weight: normal;
+   font-size: 13px;
+   text-align: left;
+   vertical-align: middle;
+   -webkit-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -moz-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -ms-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   animation: animate-fade-in 1000ms linear 0ms 1 normal;
+}
+#Editbox2
+{
+   border: 1px #A9A9A9 solid;
+   background-color: #FFFFFF;
+   color :#000000;
+   font-family: Roboto;
+   font-weight: normal;
+   font-size: 13px;
+   text-align: left;
+   vertical-align: middle;
+   -webkit-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -moz-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -ms-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   animation: animate-fade-in 1000ms linear 0ms 1 normal;
+}
+#Button1
+{
+   border: 1px #A9A9A9 solid;
+   background-color: #1D86E3;
+   color: #FFFFFF;
+   font-family: Roboto;
+   font-weight: normal;
+   font-size: 17px;
+   -webkit-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -moz-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -ms-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   animation: animate-fade-in 1000ms linear 0ms 1 normal;
+}
+#Image1
+{
+   border: 0px #000000 solid;
+   -webkit-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -moz-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -ms-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#Image2
+{
+   border: 0px #000000 solid;
+   -webkit-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -moz-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -ms-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
+#wb_Text1 
+{
+   background-color: transparent;
+   border: 0px #000000 solid;
+   padding: 0;
+   margin: 0;
+   text-align: left;
+   -webkit-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -moz-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   -ms-animation: animate-fade-in 1000ms linear 0ms 1 normal;
+   animation: animate-fade-in 1000ms linear 0ms 1 normal;
+}
+#wb_Text1 div
+{
+   text-align: left;
+}
+#Image3
+{
+   border: 0px #000000 solid;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+}
