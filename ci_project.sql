@@ -212,5 +212,7 @@ ALTER TABLE `user_login`
 MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 
 
+ALTER TABLE `customer_details` CHANGE `logo` `logo` TEXT NOT NULL;
+
 
 
