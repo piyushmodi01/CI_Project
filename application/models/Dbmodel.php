@@ -38,9 +38,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
          
         //Adds the customer to the database
-        public function addCustomer($resultArray,$imageURL){
-            
-            $resultArray['logo']=$imageURL;
+        public function addCustomer($resultArray){
+           
             if(! $this->db->insert("customer_details",$resultArray)){
                 return 0;
             }
@@ -69,6 +68,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
         
         }
+
+
+	//Updates Customer Info
+	public function updateCustomer($c_id, $newDataArray){
+		
+		$this->load->database();
+		
+        if($newDataArray['c_id']!=$c_id)
+            $newDataArray['c_id']=$c_id;
+        
+        
+		if(! $this->db->where("c_id",$c_id)->update("customer_details",$newDataArray)){
+			return 0;
+		}
+		else{
+		 return 1;
+		}
+
+
+	}
     
     }
 ?>
