@@ -41,8 +41,15 @@ public function add_customer()
         $customer_data['c_id']=$lastRecordArray[0]['c_id']+1;
 
 
-       $this->Dbmodel->addCustomer($customer_data);
-        redirect("Customer",referesh);
+       $result=$this->Dbmodel->addCustomer($customer_data);
+       if ($result == 1) {
+          $data['msg'] = 'success!!!';
+       }
+       else{
+        $data['msg'] = 'failed!!!';
+       }
+        //redirect("Customer",$data);
+        $this->load->view('add_customer.html',$data);
 
         
 					

@@ -13,12 +13,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->database();
             $q=$this->db->select('password')->from('user_login')->where('email',$email);
             $result=$q->get()->result_array();
-            if($result[0]['password']==md5($pwd)){
-                return 1;
+            
+            if(empty($result)){
+                return 0;
             }
             
+            else if($result[0]['password']==md5($pwd)){
+                return 1;
+            }
             else{
-                return 0;
+              return 0;
             }
             
         }
