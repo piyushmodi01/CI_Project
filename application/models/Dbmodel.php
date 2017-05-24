@@ -70,6 +70,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
 
+
+        //Return Last Array of Customer Table
+        public function getLastCustomer(){
+          $this->load->database();
+
+          //Getting Maximum CID from Database
+          $maxID=$this->db->query('Select Max(c_id) as max from customer_details;')->result_array();
+          
+          //Fetching All the details of Maximum CID
+          $lastRecordArray=$this->db->select("*")->from('customer_details')->where('c_id',$maxID[0]['max'])->get()->result_array();
+
+
+          return $lastRecordArray;
+
+        }
+
+
 	//Updates Customer Info
 	public function updateCustomer($c_id, $newDataArray){
 		
