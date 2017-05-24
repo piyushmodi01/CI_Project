@@ -4,7 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Customers extends MY_Controller{
 
 	 public function index()
+
     {
+
 						$this->load->view('add_customer.html');
     }
 
@@ -23,10 +25,19 @@ public function add_customers()
     $logo = array('logo' => $picture);
     //print_r($logo);
 
-				$customers = $this->input->post();
+				$cus = $this->input->post();
 												//print_r($customers);
-        $cus=array_merge($customers,$logo);
-        print_r($cus);
+        $customers=array_merge($cus,$logo);
+        //print_r($customers);
+          unset($customers['btn_submit']);
+        $this->Dbmodel->addCustomer($customers);
+    $data['msg'] = 'Customers Added!!!';
+    $this->load->view('add_customers.html',$data);
 					
 		}
+
+    public function get_customers(){
+
+    }
+
 	}

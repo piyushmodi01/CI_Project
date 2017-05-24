@@ -8,6 +8,7 @@
 		$this->load->database();
 		$this->load->helper('url');
 		$this->load->helper('array');
+		$this->load->model('Dbmodel');
 	}
 
 	}
