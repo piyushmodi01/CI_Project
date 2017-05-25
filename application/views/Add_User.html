@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Add User</title>
+
+<link href="<?php echo base_url();?>assets/css/CI_Project.css" rel="stylesheet">
+<link href="<?php echo base_url();?>assets/css/Add_User.css" rel="stylesheet">
+<script>
+function ValidateuserForm(theForm)
+{
+   var regexp;
+   regexp = /^[A-Za-zÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ \t\r\n\f0-9-]*$/;
+   if (!regexp.test(theForm.txtPassword.value))
+   {
+      alert("Please enter only letter, digit and whitespace characters in the \"password\" field.");
+      theForm.txtPassword.focus();
+      return false;
+   }
+   if (theForm.txtPassword.value == "")
+   {
+      alert("Please enter a value for the \"password\" field.");
+      theForm.txtPassword.focus();
+      return false;
+   }
+   if (theForm.txtCPassword.value == "")
+   {
+      alert("Please enter a value for the \"cpassword\" field.");
+      theForm.txtCPassword.focus();
+      return false;
+   }
+   if (theForm.txtCPassword.value != theForm.txtPassword.value)
+   {
+      alert("Values must be identical");
+      theForm.txtCPassword.focus();
+      return false;
+   }
+   return true;
+}
+</script>
+</head>
+<body>
+<div id="container">
+<div id="wb_Line2" style="position:absolute;left:473px;top:178px;width:388px;height:3px;z-index:23;">
+<img src="<?php echo base_url();?>assets/images/img0064.png" id="Line2" alt=""></div>
+<div id="wb_Form1" style="position:absolute;left:477px;top:93px;width:388px;height:328px;z-index:24;">
+<form name="userForm" method="post" action="" enctype="text/plain" id="Form1" onsubmit="return ValidateuserForm(this)">
+<div id="wb_Text4" style="position:absolute;left:28px;top:116px;width:110px;height:16px;z-index:5;text-align:left;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">Name</span></div>
+<input type="text" id="txtName" style="position:absolute;left:148px;top:116px;width:198px;height:23px;line-height:23px;z-index:6;" name="name" value="" tabindex="1" required pattern="[A-Za-zÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ \t\r\n\f]*$" placeholder="Name">
+<div id="wb_Text5" style="position:absolute;left:28px;top:146px;width:110px;height:16px;z-index:7;text-align:left;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">Email</span></div>
+<input type="email" id="txtEmail" style="position:absolute;left:148px;top:146px;width:198px;height:23px;line-height:23px;z-index:8;" name="email" value="" tabindex="2" required placeholder="Email">
+<div id="wb_Text6" style="position:absolute;left:28px;top:176px;width:110px;height:16px;z-index:9;text-align:left;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">Password</span></div>
+<input type="password" id="txtPassword" style="position:absolute;left:148px;top:176px;width:198px;height:23px;line-height:23px;z-index:10;" name="password" value="" tabindex="3" autocomplete="off" placeholder="Password">
+<div id="wb_Text7" style="position:absolute;left:28px;top:206px;width:110px;height:16px;z-index:11;text-align:left;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">Confirm Password</span></div>
+<input type="password" id="txtCPassword" style="position:absolute;left:148px;top:206px;width:198px;height:23px;line-height:23px;z-index:12;" name="cpassword" value="" tabindex="4" autocomplete="off" placeholder="Password">
+<div id="wb_Text8" style="position:absolute;left:280px;top:241px;width:54px;height:16px;z-index:13;text-align:left;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">Admin</span></div>
+<input type="radio" id="RadioButton1" name="NewGroup" value="admin" style="position:absolute;left:250px;top:241px;z-index:14;" tabindex="5">
+<div id="wb_Text9" style="position:absolute;left:198px;top:241px;width:45px;height:16px;z-index:15;text-align:left;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">User</span></div>
+<input type="radio" id="RadioButton2" name="NewGroup" value="user" checked style="position:absolute;left:168px;top:241px;z-index:16;" tabindex="6">
+<input type="submit" id="Button1" name="" value="Submit" style="position:absolute;left:149px;top:284px;width:200px;height:25px;z-index:17;" tabindex="7">
+<input type="reset" id="Button2" name="" value="Reset" style="position:absolute;left:29px;top:284px;width:96px;height:25px;z-index:18;" tabindex="8">
+<div id="wb_Text10" style="position:absolute;left:28px;top:241px;width:90px;height:16px;z-index:19;text-align:left;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">Role</span></div>
+<div id="wb_Text13" style="position:absolute;left:94px;top:25px;width:294px;height:40px;text-align:center;z-index:20;">
+<span style="color:#263238;font-family:Arial;font-size:35px;">ADD USER</span></div>
+<div id="wb_Image19" style="position:absolute;left:14px;top:8px;width:75px;height:75px;z-index:21;">
+<img src="<?php echo base_url();?>assets/images/user.png" id="Image19" alt=""></div>
+<div id="wb_Image18" style="position:absolute;left:68px;top:55px;width:26px;height:28px;z-index:22;">
+<img src="<?php echo base_url();?>assets/images/plus.png" id="Image18" alt=""></div>
+</form>
+</div>
+<div id="wb_Line1" style="position:absolute;left:473px;top:178px;width:388px;height:3px;z-index:25;">
+<img src="<?php echo base_url();?>assets/images/img0063.png" id="Line1" alt=""></div>
+</div>
+<div id="PageHeader1" style="position:absolute;overflow:hidden;text-align:left;left:0px;top:0px;width:100%;height:86px;z-index:7777;">
+<div id="wb_Text1" style="position:absolute;left:92px;top:32px;width:115px;height:27px;z-index:0;text-align:left;">
+<span style="color:#FFFFFF;font-family:Arial;font-size:24px;">Welcome</span></div>
+<div id="wb_Image1" style="position:absolute;left:26px;top:17px;width:51px;height:56px;z-index:1;">
+<img src="<?php echo base_url();?>assets/images/uer.png" id="Image1" alt=""></div>
+<div id="wb_Text2" style="position:absolute;left:207px;top:30px;width:115px;height:29px;z-index:2;text-align:left;">
+<span style="color:#FFFFFF;font-family:Arial;font-size:24px;"><strong>ADMIN</strong></span></div>
+<div id="wb_Image2" style="position:absolute;left:1287px;top:17px;width:54px;height:52px;z-index:3;">
+<img src="<?php echo base_url();?>assets/images/4509ba2b6663b1e81748e24eb16204d2-cross.png" id="Image2" alt=""></div>
+<div id="wb_Text3" style="position:absolute;left:1212px;top:32px;width:115px;height:22px;z-index:4;text-align:left;">
+<span style="color:#FFFFFF;font-family:Arial;font-size:19px;">Logout</span></div>
+</div>
+</body>
+</html>

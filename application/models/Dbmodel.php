@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     class Dbmodel extends CI_Model{
         
         
-        //AUTHENTICATION METHODS
-        {
-             //Authenticate User and return 0 or 1.
+        //AUTHENTICATION METHODS------------------------------------------------
+        
+         //Authenticate User and return 0 or 1.
         public function authenticate($email, $pwd){
             
             $this->load->database();
@@ -35,13 +35,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         }
      
+        //-----------------------------------------------------------------------    
             
-            
-        }
+        
         
    
-        //CUSTOMER METHODS
-        {
+        //CUSTOMER METHODS-------------------------------------------------------
+        
         //Adds the customer to the database
         public function addCustomer($resultArray){
            
@@ -130,19 +130,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //delete Specific Customer Details
         public function deleteCustomer($c_id){
             $this->db->where('c_id', $c_id);
-            $this->db->delete('customerDetails');
+            if(! $this->db->delete('customer_details'))
+                return 0;
+            else
+                return 1;
         }
         
+        //-----------------------------------------------------------------------
         
-        
-    }
+    
         
   
-        //USER METHODS
-        {
+        //USER METHODS-----------------------------------------------------------
+        
         //Adds the customer to the database
         public function addUser($resultArray){
            
+            //Convrting Plain Text Password to MD5
+            $demoPass=md5($resultArray['password']);
+            $resultArray['password']=$demoPass;
+            
             if(! $this->db->insert("user_login",$resultArray)){
                 return 0;
             }
@@ -172,7 +179,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
     
         //returns the object with customer details
-        public function getCustomerObject($id){
+        public function getUserObject($id){
                 $this->load->database();
                 if($c_id==-1){
                     
@@ -207,7 +214,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         //Updates Customer Info
-        public function updateCustomer($id, $newDataArray){
+        public function updateUser($id, $newDataArray){
 
             $this->load->database();
 
@@ -226,14 +233,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         
         //delete Specific Customer Details
-        public function deleteCustomer($id){
+        public function deleteUser($id){
             $this->db->where('id', $id);
             $this->db->delete('user_login');
         }
         
-            
-        }
+        //-----------------------------------------------------------------------    
+        
     
+        
+        
+        
         
         
         
