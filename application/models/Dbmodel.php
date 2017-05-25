@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     class Dbmodel extends CI_Model{
         
         
-        //Authenticate User and return 0 or 1.
-      
+        //AUTHENTICATION METHODS------------------------------------------------
         
+         //Authenticate User and return 0 or 1.
         public function authenticate($email, $pwd){
             
             $this->load->database();
@@ -28,19 +28,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         
         //Checks EMAIL and return the role of the user.
-        
-        
         public function getRole($email){
             $this->load->database();
             $result=$this->db->select('role')->from('user_login')->where('email',$email)->get()->result_array();
             return($result[0]['role']);
         
         }
-    
+     
+        //-----------------------------------------------------------------------    
+            
         
         
+   
+        //CUSTOMER METHODS-------------------------------------------------------
         
-         
         //Adds the customer to the database
         public function addCustomer($resultArray){
            
@@ -51,9 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 return 1;
             }
         }
-            
-            
-            //returns the array with customer details
+        
+        //returns the array with customer details
         public function getCustomer($c_id){
                 $this->load->database();
                 if($c_id==-1){
@@ -72,17 +72,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
         
         }
-
-        
-        
-               //returns the object with customer details
+    
+        //returns the object with customer details
         public function getCustomerObject($c_id){
                 $this->load->database();
                 if($c_id==-1){
                     
                     $result=$this->db->select('*')->from('customer_details')->get()->result();
                     return($result);
-                    
+                        
                 }
                 else{
                     
@@ -95,9 +93,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         }
         
-        
-
-
         //Return Last Array of Customer Table
         public function getLastCustomer(){
           $this->load->database();
@@ -113,25 +108,148 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         }
 
+        //Updates Customer Info
+        public function updateCustomer($c_id, $newDataArray){
 
-	//Updates Customer Info
-	public function updateCustomer($c_id, $newDataArray){
-		
-		$this->load->database();
-		
-        if($newDataArray['c_id']!=$c_id)
-            $newDataArray['c_id']=$c_id;
+            $this->load->database();
+
+            if($newDataArray['c_id']!=$c_id)
+                $newDataArray['c_id']=$c_id;
+
+
+            if(! $this->db->where("c_id",$c_id)->update("customer_details",$newDataArray)){
+                return 0;
+            }
+            else{
+             return 1;
+            }
+
+
+        }
         
+        //delete Specific Customer Details
+        public function deleteCustomer($c_id){
+            $this->db->where('c_id', $c_id);
+            if(! $this->db->delete('customer_details'))
+                return 0;
+            else
+                return 1;
+        }
         
-		if(! $this->db->where("c_id",$c_id)->update("customer_details",$newDataArray)){
-			return 0;
-		}
-		else{
-		 return 1;
-		}
-
-
-	}
+        //-----------------------------------------------------------------------
+        
     
-    }
+        
+  
+        //USER METHODS-----------------------------------------------------------
+        
+        //Adds the customer to the database
+        public function addUser($resultArray){
+           
+            //Convrting Plain Text Password to MD5
+            $demoPass=md5($resultArray['password']);
+            $resultArray['password']=$demoPass;
+            
+            if(! $this->db->insert("user_login",$resultArray)){
+                return 0;
+            }
+            else {
+                return 1;
+            }
+        }
+        
+        //returns the array with customer details
+        public function getUser($id){
+                $this->load->database();
+                if($c_id==-1){
+                    
+                    $result=$this->db->select('*')->from('user_login')->get()->result_array();
+                    return($result);
+                    
+                }
+                else{
+                    
+                    $result=$this->db->select('*')->from('user_login')->where('id',$id)->get()->result_array();
+                    return($result);
+                    
+                
+                }
+            
+        
+        }
+    
+        //returns the object with customer details
+        public function getUserObject($id){
+                $this->load->database();
+                if($c_id==-1){
+                    
+                    $result=$this->db->select('*')->from('user_login')->get()->result();
+                    return($result);
+                        
+                }
+                else{
+                    
+                    $result=$this->db->select('*')->from('user_login')->where('id',$id)->get()->result();
+                    return($result);
+                    
+                
+                }
+            
+        
+        }
+        
+        //Return Last Array of Customer Table
+        public function getLastUser(){
+          $this->load->database();
+
+          //Getting Maximum CID from Database
+          $maxID=$this->db->query('Select Max(id) as max from user_login;')->result_array();
+          
+          //Fetching All the details of Maximum CID
+          $lastRecordArray=$this->db->select("*")->from('user_login')->where('id',$maxID[0]['max'])->get()->result_array();
+
+
+          return $lastRecordArray;
+
+        }
+
+        //Updates Customer Info
+        public function updateUser($id, $newDataArray){
+
+            $this->load->database();
+
+            if($newDataArray['id']!=$id)
+                $newDataArray['id']=$id;
+
+
+            if(! $this->db->where("id",$id)->update("user_login",$newDataArray)){
+                return 0;
+            }
+            else{
+             return 1;
+            }
+
+
+        }
+        
+        //delete Specific Customer Details
+        public function deleteUser($id){
+            $this->db->where('id', $id);
+            $this->db->delete('user_login');
+        }
+        
+        //-----------------------------------------------------------------------    
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }//Model Closes here!
 ?>
