@@ -5,7 +5,7 @@ class Customer extends MY_Controller{
   
  
 	 public function index()
-    {
+    {       
 						$this->load->view('add_customer.html');
             
     }
@@ -43,17 +43,25 @@ public function add_customer()
 
        $result=$this->Dbmodel->addCustomer($customer_data);
        if ($result == 1) {
-          $data['msg'] = 'success!!!';
+            echo "<script>alert('Success!')</script>";
+             redirect("Customer","refresh");
+
        }
-       else{
-        $data['msg'] = 'failed!!!';
-       }
-        //redirect("Customer",$data);
-        $this->load->view('add_customer.html',$data);
+        
+       else
+          echo "<script>alert('Failed! Try Again.')</script>";
+          
+       
+        
+        //$this->load->view('add_customer.html',$data);
 
         
 					
 		}
+
+    public function update_customer(){
+      $this->load->view('update_customer.html');
+    }
 
 
 	}

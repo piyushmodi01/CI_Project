@@ -22,6 +22,10 @@ class Login extends MY_Controller{
 										$res =$this->Dbmodel->authenticate($email,$password);
 										if($res==1){
 											$role=$this->Dbmodel->getRole($email);	
+											if ($role == user) {
+											$this->session->set_userdata('email', $users['user_email']);
+											redirect('UserDashboard','referesh');
+											}
 											//$this->session->set_userdata('email', $users['user_email']);
 											//redirect('Customer','referesh');
 											
@@ -32,22 +36,7 @@ class Login extends MY_Controller{
 										}
 										
 
-			// //echo $res;
-			// if($res==-1){
-			// 	//to do if user is invalid
-
-			// }
-			// else if($res==1){
-			// 				$this->session->set_userdata('email', $users['user_email']);
-			// 				redirect('Customer','referesh');
-			// 		}
-
-			// 	else {
-			// 		//$this->session->set_userdata('email', $users['user_email']);
-			// 				redirect('User_dashboard','referesh');
-						
-			// 	}
-
+		
 			
 		 }
 			
@@ -57,11 +46,11 @@ class Login extends MY_Controller{
 
 		
 
-		/*function do_logout()
+		function do_logout()
 		{
 					$this->session->unset_userdata('email');
 					self::index();
-		}*/
+		}
     
 }
 

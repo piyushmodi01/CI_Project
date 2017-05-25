@@ -102,8 +102,11 @@
 <img src="<?php echo base_url();?>assets/images/handshake-flat.png" id="Image3" alt=""></div>
 <div id="wb_Text5" style="position:absolute;left:201px;top:202px;width:121px;height:23px;text-align:center;z-index:50;">
 <span style="color:#000000;font-family:Arial;font-size:20px;">CUSTOMER</span></div>
-<input type="submit" id="Button1" name="" value="+" style="position:absolute;left:68px;top:303px;width:55px;height:38px;z-index:51;">
-<input type="submit" id="Button2" name="" value="View" style="position:absolute;left:123px;top:303px;width:214px;height:38px;z-index:52;">
+
+<a href="<?= base_url('index.php/Customer');?>"><input type="submit" id="btn_add_customer" name="btn_add_customer" value="+" style="position:absolute;left:68px;top:303px;width:55px;height:38px;z-index:51;"></a>
+
+<a href="<?= base_url('index.php/Customer/update_customer');?>"><input type="submit" id="btn_view_customer" name="btn_view_customer" value="View" style="position:absolute;left:123px;top:303px;width:214px;height:38px;z-index:52;"></a>
+
 <input type="submit" id="Button3" name="" value="+" style="position:absolute;left:391px;top:303px;width:55px;height:38px;z-index:53;">
 <input type="submit" id="Button4" name="" value="View" style="position:absolute;left:446px;top:303px;width:214px;height:38px;z-index:54;">
 <input type="submit" id="Button5" name="" value="+" style="position:absolute;left:716px;top:303px;width:55px;height:38px;z-index:55;">
@@ -127,7 +130,7 @@
 <div id="wb_Text2" style="position:absolute;left:207px;top:30px;width:115px;height:29px;z-index:2;text-align:left;">
 <span style="color:#FFFFFF;font-family:Arial;font-size:24px;"><strong>USER</strong></span></div>
 <div id="wb_Image2" style="position:absolute;left:1299px;top:17px;width:54px;height:52px;z-index:3;">
-<img src="<?php echo base_url();?>assets/images/4509ba2b6663b1e81748e24eb16204d2-cross.png" id="Image2" alt=""></div>
+<img src="<?php echo base_url();?>assets/images/4509ba2b6663b1e81748e24eb16204d2-cross.png" id="Image2" alt="" onclick="Login/do_logout"></div>
 <div id="wb_Text3" style="position:absolute;left:1224px;top:32px;width:115px;height:22px;z-index:4;text-align:left;">
 <span style="color:#FFFFFF;font-family:Arial;font-size:19px;">Logout</span></div>
 </div>
