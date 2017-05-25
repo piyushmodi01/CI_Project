@@ -9,8 +9,8 @@ class Customer extends MY_Controller{
 						$this->load->view('add_customer.html');
             
     }
+    
 
-}
 
     public function add_customer()
     {
@@ -41,7 +41,7 @@ class Customer extends MY_Controller{
             
             if ($result == 1) {
               echo "<script>alert('Success!')</script>";
-              redirect("Customer","refresh");
+              redirect("../Customer","refresh");
 
             }
         
