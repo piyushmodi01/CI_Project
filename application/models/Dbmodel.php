@@ -73,6 +73,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         }
 
+        
+        
+               //returns the object with customer details
+        public function getCustomerObject($c_id){
+                $this->load->database();
+                if($c_id==-1){
+                    
+                    $result=$this->db->select('*')->from('customer_details')->get()->result();
+                    return($result);
+                    
+                }
+                else{
+                    
+                    $result=$this->db->select('*')->from('customer_details')->where('c_id',$c_id)->get()->result();
+                    return($result);
+                    
+                
+                }
+            
+        
+        }
+        
+        
 
 
         //Return Last Array of Customer Table
