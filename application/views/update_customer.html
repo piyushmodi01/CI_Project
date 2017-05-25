@@ -5,11 +5,13 @@
 <title>Update Customers</title>
      <script>
 
-            //var data;
+            var data;
             function dataupdate(){
                 var result=(document.getElementById("Combobox1").value);
-                var data=result.split("//");
+
+                data=result.split("//");
                 
+                document.getElementById('txtId').value=data[0];
                 document.getElementById('txtName').value=data[1];
                 document.getElementById('txtAddress').value=data[2];
                 document.getElementById('txtServiceTax').value=data[3];
@@ -17,20 +19,22 @@
                 document.getElementById('txtCT').value=data[5];
                 document.getElementById('txtPAN').value=data[6];
                 document.getElementById('txtEmail').value=data[7];
+              }
+
                
-            }
+               function confirmDelete(){
+                 var result=(document.getElementById("Combobox1").value);
+                  data=result.split("//");
+                
+                
+                var id=document.getElementById('txtName').value=data[0];
+                //alert(id);
+                confirm("Are you sure");
 
-
-
-           function confirmDeletion(){
-              var answer = confirm("Are You Sure?");
-               if(answer==true){
                    
-                   <?php echo site_url('Customer/delete_customer/?id='+data); ?>
-
                }
-           }
-
+               
+            
         </script>
 <link href="<?php echo base_url();?>assets/css/CI_Project.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/css/update_customer.css" rel="stylesheet">
@@ -38,15 +42,16 @@
 <body>
 <div id="container">
 <div id="wb_Form1" style="position:absolute;left:407px;top:103px;width:592px;height:580px;z-index:30;">
-<form name="CustomerDetails" method="post" action="" enctype="multipart/form-data" id="Form1">
-<input type="text" id="txtServiceTax" style="position:absolute;left:160px;top:288px;width:368px;height:23px;line-height:23px;z-index:5;" name="txtServiceTax" value="" tabindex="3"  placeholder="Service Tax">
-<input type="text" id="txtName" style="position:absolute;left:160px;top:153px;width:368px;height:23px;line-height:23px;z-index:6;" name="txtName" value="" tabindex="1"  placeholder="Name">
-<textarea name="txtAddress" id="txtAddress" style="position:absolute;left:160px;top:183px;width:368px;height:98px;z-index:7;" rows="5" cols="58" tabindex="2"  placeholder="Address"></textarea>
-<input type="text" id="txtTIN" style="position:absolute;left:160px;top:318px;width:368px;height:23px;line-height:23px;z-index:8;" name="txtTIN" value="" tabindex="4"  placeholder="Tin Number">
-<input type="text" id="txtCT" style="position:absolute;left:160px;top:348px;width:368px;height:23px;line-height:23px;z-index:9;" name="txtCT" value="" tabindex="5"  placeholder="CT Number">
-<input type="text" id="txtPAN" style="position:absolute;left:160px;top:378px;width:368px;height:23px;line-height:23px;z-index:10;" name="txtPAN" value="" tabindex="6"  placeholder="PAN Number">
-<input type="file" id="FileUpload1" style="position:absolute;left:161px;top:431px;width:241px;height:23px;line-height:23px;z-index:11;" name="fileLOGO" tabindex="7" >
-<input type="text" id="txtEmail" style="position:absolute;left:159px;top:478px;width:368px;height:23px;line-height:23px;z-index:12;" name="txtEmail" value="" tabindex="8"  placeholder="Email">
+<form name="CustomerDetails" method="post" action="test" enctype="multipart/form-data" id="Form1">
+<input type="hidden" id="txtId" style="position:absolute;left:160px;top:288px;width:368px;height:23px;line-height:23px;z-index:5;" name="c_id" value="" tabindex="3"  placeholder="id">
+<input type="text" id="txtServiceTax" style="position:absolute;left:160px;top:288px;width:368px;height:23px;line-height:23px;z-index:5;" name="service_tax" value="" tabindex="3"  placeholder="Service Tax">
+<input type="text" id="txtName" style="position:absolute;left:160px;top:153px;width:368px;height:23px;line-height:23px;z-index:6;" name="name" value="" tabindex="1"  placeholder="Name">
+<textarea name="address" id="txtAddress" style="position:absolute;left:160px;top:183px;width:368px;height:98px;z-index:7;" rows="5" cols="58" tabindex="2"  placeholder="Address"></textarea>
+<input type="text" id="txtTIN" style="position:absolute;left:160px;top:318px;width:368px;height:23px;line-height:23px;z-index:8;" name="tin_no" value="" tabindex="4"  placeholder="Tin Number">
+<input type="text" id="txtCT" style="position:absolute;left:160px;top:348px;width:368px;height:23px;line-height:23px;z-index:9;" name="ct_no" value="" tabindex="5"  placeholder="CT Number">
+<input type="text" id="txtPAN" style="position:absolute;left:160px;top:378px;width:368px;height:23px;line-height:23px;z-index:10;" name="pan_no" value="" tabindex="6"  placeholder="PAN Number">
+<input type="file" id="FileUpload1" style="position:absolute;left:161px;top:431px;width:241px;height:23px;line-height:23px;z-index:11;" name="logo" tabindex="7" >
+<input type="text" id="txtEmail" style="position:absolute;left:159px;top:478px;width:368px;height:23px;line-height:23px;z-index:12;" name="email" value="" tabindex="8"  placeholder="Email">
 <div id="wb_Text4" style="position:absolute;left:58px;top:123px;width:92px;height:18px;z-index:13;text-align:left;">
 <span style="color:#263238;font-family:Arial;font-size:16px;">ID</span></div>
 <div id="wb_Text5" style="position:absolute;left:58px;top:153px;width:92px;height:18px;z-index:14;text-align:left;">
@@ -72,10 +77,10 @@
 <img src="<?php echo base_url();?>assets/images/handshake-flat.png" id="Image3" alt=""></div>
 <hr id="Line1" style="position:absolute;left:0px;top:104px;width:592px;height:1px;z-index:26;">
     
-<input type="submit" id="btnUpdate" name="btnUpdate" value="Update" style="position:absolute;left:158px;top:518px;width:270px;height:39px;z-index:27;">
+<input type="submit" id="btnUpdate" name="btnAction" value="Update" style="position:absolute;left:158px;top:518px;width:270px;height:39px;z-index:27;">
 
     
-<input type="button" id="btnDelete" name="btnDelete" value="Delete" onclick="confirmDeletion()" style="position:absolute;left:435px;top:518px;width:100px;height:39px;z-index:27;background:#"></button>
+<input type="submit" id="btnDelete" name="btnAction" value="Delete"  style="position:absolute;left:435px;top:518px;width:100px;height:39px;z-index:27;background:#">
 
     
 <select name="Combobox1" id="Combobox1" style="position:absolute;left:160px;top:124px;width:185px;height:25px;z-index:29;" onchange="dataupdate()">

@@ -64,4 +64,45 @@ class Customer extends MY_Controller{
         
     }
 
+    public function delete_customer(){
+      $customer_data = $this->input->post();
+          // $id = $this->uri->segment(3);
+          // $this->Dbmodel->deleteCustomer($id);
+          // self::view_emp();
+    }
+
+    public function test(){
+       $customer_data = $this->input->post();
+        $btnAction=$customer_data['btnAction'];
+
+              unset($customer_data['btnAction']);
+              unset($customer_data['Combobox1']);
+              
+      if ($btnAction == "Update") {
+          
+             print_r($customer_data);
+          //$txtId=$customer_data['txtId'];
+          //$this->Dbmodel->updateCustomer($customer_data);
+        
+      }
+
+      elseif($btnAction=="Delete")
+      {
+           $txtId=$customer_data['txtId'];
+          $result_del=$this->Dbmodel->deleteCustomer($txtId);
+          if ($result_del == 1) 
+          {
+              echo "<script>alert('Success!')</script>";
+              //redirect("../Customer","refresh");
+
+            }
+            else{
+              echo "<script>alert('Failed!')</script>";
+            }
+      }
+
+        //echo "<pre>";
+        //print_r($customer_data);
+    }
+
 }
