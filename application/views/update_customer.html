@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <title>Update Customers</title>
      <script>
+
+            //var data;
             function dataupdate(){
                 var result=(document.getElementById("Combobox1").value);
                 var data=result.split("//");
@@ -15,11 +17,20 @@
                 document.getElementById('txtCT').value=data[5];
                 document.getElementById('txtPAN').value=data[6];
                 document.getElementById('txtEmail').value=data[7];
-                
-                
-                
                
             }
+
+
+
+           function confirmDeletion(){
+              var answer = confirm("Are You Sure?");
+               if(answer==true){
+                   
+                   <?php echo site_url('Customer/delete_customer/?id='+data); ?>
+
+               }
+           }
+
         </script>
 <link href="<?php echo base_url();?>assets/css/CI_Project.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/css/update_customer.css" rel="stylesheet">
@@ -64,7 +75,7 @@
 <input type="submit" id="btnUpdate" name="btnUpdate" value="Update" style="position:absolute;left:158px;top:518px;width:270px;height:39px;z-index:27;">
 
     
-<input type="submit" id="btnDelete" name="btnDelete" value="Delete" style="position:absolute;left:435px;top:518px;width:100px;height:39px;z-index:27;background:#">
+<input type="button" id="btnDelete" name="btnDelete" value="Delete" onclick="confirmDeletion()" style="position:absolute;left:435px;top:518px;width:100px;height:39px;z-index:27;background:#"></button>
 
     
 <select name="Combobox1" id="Combobox1" style="position:absolute;left:160px;top:124px;width:185px;height:25px;z-index:29;" onchange="dataupdate()">
