@@ -2,8 +2,25 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Page</title>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/update_customer.js"></script>
+<title>Update Customers</title>
+     <script>
+            function dataupdate(){
+                var result=(document.getElementById("Combobox1").value);
+                var data=result.split("//");
+                
+                document.getElementById('txtName').value=data[1];
+                document.getElementById('txtAddress').value=data[2];
+                document.getElementById('txtServiceTax').value=data[3];
+                document.getElementById('txtTIN').value=data[4];
+                document.getElementById('txtCT').value=data[5];
+                document.getElementById('txtPAN').value=data[6];
+                document.getElementById('txtEmail').value=data[7];
+                
+                
+                
+               
+            }
+        </script>
 <link href="<?php echo base_url();?>assets/css/CI_Project.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/css/update_customer.css" rel="stylesheet">
 </head>
@@ -11,14 +28,14 @@
 <div id="container">
 <div id="wb_Form1" style="position:absolute;left:407px;top:103px;width:592px;height:580px;z-index:30;">
 <form name="CustomerDetails" method="post" action="" enctype="multipart/form-data" id="Form1">
-<input type="text" id="Editbox3" style="position:absolute;left:160px;top:288px;width:368px;height:23px;line-height:23px;z-index:5;" name="txtServiceTax" value="" tabindex="3"  placeholder="Service Tax">
-<input type="text" id="Editbox2" style="position:absolute;left:160px;top:153px;width:368px;height:23px;line-height:23px;z-index:6;" name="txtName" value="" tabindex="1"  placeholder="Name">
-<textarea name="txtAddress" id="TextArea1" style="position:absolute;left:160px;top:183px;width:368px;height:98px;z-index:7;" rows="5" cols="58" tabindex="2"  placeholder="Address"></textarea>
-<input type="text" id="Editbox4" style="position:absolute;left:160px;top:318px;width:368px;height:23px;line-height:23px;z-index:8;" name="txtTIN" value="" tabindex="4"  placeholder="Tin Number">
-<input type="text" id="Editbox5" style="position:absolute;left:160px;top:348px;width:368px;height:23px;line-height:23px;z-index:9;" name="txtCT" value="" tabindex="5"  placeholder="CT Number">
-<input type="text" id="Editbox6" style="position:absolute;left:160px;top:378px;width:368px;height:23px;line-height:23px;z-index:10;" name="txtPAN" value="" tabindex="6"  placeholder="PAN Number">
+<input type="text" id="txtServiceTax" style="position:absolute;left:160px;top:288px;width:368px;height:23px;line-height:23px;z-index:5;" name="txtServiceTax" value="" tabindex="3"  placeholder="Service Tax">
+<input type="text" id="txtName" style="position:absolute;left:160px;top:153px;width:368px;height:23px;line-height:23px;z-index:6;" name="txtName" value="" tabindex="1"  placeholder="Name">
+<textarea name="txtAddress" id="txtAddress" style="position:absolute;left:160px;top:183px;width:368px;height:98px;z-index:7;" rows="5" cols="58" tabindex="2"  placeholder="Address"></textarea>
+<input type="text" id="txtTIN" style="position:absolute;left:160px;top:318px;width:368px;height:23px;line-height:23px;z-index:8;" name="txtTIN" value="" tabindex="4"  placeholder="Tin Number">
+<input type="text" id="txtCT" style="position:absolute;left:160px;top:348px;width:368px;height:23px;line-height:23px;z-index:9;" name="txtCT" value="" tabindex="5"  placeholder="CT Number">
+<input type="text" id="txtPAN" style="position:absolute;left:160px;top:378px;width:368px;height:23px;line-height:23px;z-index:10;" name="txtPAN" value="" tabindex="6"  placeholder="PAN Number">
 <input type="file" id="FileUpload1" style="position:absolute;left:161px;top:431px;width:241px;height:23px;line-height:23px;z-index:11;" name="fileLOGO" tabindex="7" >
-<input type="text" id="Editbox7" style="position:absolute;left:159px;top:478px;width:368px;height:23px;line-height:23px;z-index:12;" name="txtEmail" value="" tabindex="8"  placeholder="Email">
+<input type="text" id="txtEmail" style="position:absolute;left:159px;top:478px;width:368px;height:23px;line-height:23px;z-index:12;" name="txtEmail" value="" tabindex="8"  placeholder="Email">
 <div id="wb_Text4" style="position:absolute;left:58px;top:123px;width:92px;height:18px;z-index:13;text-align:left;">
 <span style="color:#263238;font-family:Arial;font-size:16px;">ID</span></div>
 <div id="wb_Text5" style="position:absolute;left:58px;top:153px;width:92px;height:18px;z-index:14;text-align:left;">
@@ -44,9 +61,27 @@
 <img src="<?php echo base_url();?>assets/images/handshake-flat.png" id="Image3" alt=""></div>
 <hr id="Line1" style="position:absolute;left:0px;top:104px;width:592px;height:1px;z-index:26;">
     
-<input type="submit" id="Button3" name="btnSave" value="Save" style="position:absolute;left:160px;top:518px;width:370px;height:39px;z-index:27;">
+<input type="submit" id="btnUpdate" name="btnUpdate" value="Update" style="position:absolute;left:158px;top:518px;width:270px;height:39px;z-index:27;">
 
-<select name="Combobox1" size="1" id="Combobox1" style="position:absolute;left:160px;top:124px;width:185px;height:25px;z-index:29;">
+    
+<input type="submit" id="btnDelete" name="btnDelete" value="Delete" style="position:absolute;left:435px;top:518px;width:100px;height:39px;z-index:27;background:#">
+
+    
+<select name="Combobox1" id="Combobox1" style="position:absolute;left:160px;top:124px;width:185px;height:25px;z-index:29;" onchange="dataupdate()">
+    <option>Please Select ID</option>
+  
+    <?php
+
+        foreach($data as $record)
+        {   
+            echo "<option value='    ".$record->c_id."//".$record->name."//".$record->address."//".$record->service_tax."//".$record->tin_no."//".$record->ct_no."//".$record->pan_no."//".$record->email."          '>";
+                echo $record->c_id." -> ".$record->name;
+            echo "</option>";
+        }
+
+    ?>
+    
+    
 </select>
 </form>
 </div>
