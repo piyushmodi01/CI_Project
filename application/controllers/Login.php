@@ -22,9 +22,13 @@ class Login extends MY_Controller{
 										$res =$this->Dbmodel->authenticate($email,$password);
 										if($res==1){
 											$role=$this->Dbmodel->getRole($email);	
-											if ($role == user) {
+											if ($role == "user") {
 											$this->session->set_userdata('email', $users['user_email']);
-											redirect('UserDashboard','referesh');
+														redirect('UserDashboard','referesh');
+											}
+											else if($role == "admin")
+											{
+														redirect('AdminDashboard','referesh');
 											}
 											//$this->session->set_userdata('email', $users['user_email']);
 											//redirect('Customer','referesh');
