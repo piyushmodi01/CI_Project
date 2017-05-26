@@ -37,7 +37,7 @@ class Customer extends MY_Controller{
 
             $lastRecordArray=$this->Dbmodel->getLastCustomer();
 
-
+            if(isset($lastRecordArray[0]))
             $customer_data['c_id']=$lastRecordArray[0]['c_id']+1;
 
 
