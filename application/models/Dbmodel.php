@@ -221,7 +221,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if($newDataArray['id']!=$id)
                 $newDataArray['id']=$id;
 
-
+            if(isset($newDataArray['password'])){
+                
+                $txtPass=$newDataArray['password'];
+                $newDataArray['password']=md5($txtPass);
+                
+                
+            }
             if(! $this->db->where("id",$id)->update("user_login",$newDataArray)){
                 return 0;
             }
