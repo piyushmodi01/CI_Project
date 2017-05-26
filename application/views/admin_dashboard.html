@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>Admin Dashboard</title>
+
+
 <link href="<?php echo base_url();?>assets/css/CI_Project.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/css/admin_dashboard.css" rel="stylesheet">
 </head>
@@ -147,8 +149,12 @@
 <div id="wb_Shape36" style="position:absolute;left:1039px;top:799px;width:55px;height:37px;z-index:77;">
 <img src="<?php echo base_url();?>assets/images/img0062.png" id="Shape36" alt="" style="width:55px;height:37px;"></div>
 <input type="submit" id="Button1" name="" value="View" style="position:absolute;left:1039px;top:800px;width:269px;height:38px;z-index:78;">
-<input type="submit" id="Button3" name="" value="View" style="position:absolute;left:716px;top:800px;width:269px;height:38px;z-index:79;">
-<input type="submit" id="Button5" name="" value="View" style="position:absolute;left:391px;top:800px;width:269px;height:38px;z-index:80;">
+
+<a href="<?= base_url('index.php/User/update_user');?>">
+	<input type="submit" id="btn_view_updateuser" name="btn_view_updateuser" value="View" style="position:absolute;left:716px;top:800px;width:269px;height:38px;z-index:79;"></a>
+
+<a href="<?= base_url('index.php/User');?>"><input type="submit" id="btn_adduser" name="btn_adduser" value="View"  style="position:absolute;left:391px;top:800px;width:269px;height:38px;z-index:80;"></a>
+
 <input type="submit" id="Button7" name="" value="View" style="position:absolute;left:68px;top:800px;width:269px;height:38px;z-index:81;">
 <div id="wb_Image24" style="position:absolute;left:152px;top:726px;width:36px;height:36px;z-index:82;">
 <img src="<?php echo base_url();?>assets/images/plus.png" id="Image24" alt=""></div>

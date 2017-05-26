@@ -4,6 +4,27 @@
 <meta charset="utf-8">
 <title>Update User</title>
 
+ <script>
+
+            var data;
+            function dataupdate(){
+                var result=(document.getElementById("Combobox1").value);
+
+                data=result.split("//");
+                
+                document.getElementById('txtId').value=data[0];
+                document.getElementById('txtName').value=data[1];
+                document.getElementById('txtEmail').value=data[2];
+                 
+
+              }
+
+               
+              
+               
+            
+        </script>
+
 <link href="<?php echo base_url();?>assets/css/CI_Project.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/css/Update_User.css" rel="stylesheet">
     
@@ -11,18 +32,8 @@
 function ValidateuserForm(theForm)
 {
    var regexp;
-   if (theForm.Editbox4.value == "")
-   {
-      alert("Please enter a value for the \"txtCPassword\" field.");
-      theForm.Editbox4.focus();
-      return false;
-   }
-   if (theForm.Editbox4.value != theForm.txtPassword.value)
-   {
-      alert("Password Doesn't Match");
-      theForm.Editbox4.focus();
-      return false;
-   }
+   
+  
    if (theForm.Combobox1.selectedIndex < 0)
    {
       alert("Please Select User Details");
@@ -42,27 +53,32 @@ function ValidateuserForm(theForm)
 <body>
 <div id="container">
 <div id="wb_Form1" style="position:absolute;left:482px;top:112px;width:388px;height:356px;z-index:25;">
-<form name="userForm" method="post" action="" enctype="text/plain" id="Form1" onsubmit="return ValidateuserForm(this)">
+<form name="userForm" method="post" action="update_delete" enctype="multipart/form-data" id="Form1" onsubmit="return ValidateuserForm(this)">
 <div id="wb_Text4" style="position:absolute;left:28px;top:143px;width:110px;height:16px;z-index:5;text-align:left;">
+   <input type="hidden" id="txtId" style="position:absolute;left:149px;top:173px;width:198px;height:23px;line-height:23px;z-index:8;" name="id" value="" tabindex="2" required placeholder="Email">
+
 <span style="color:#000000;font-family:Arial;font-size:13px;">Name</span></div>
-<input type="email" id="txtName" style="position:absolute;left:148px;top:143px;width:198px;height:23px;line-height:23px;z-index:6;" name="name" value="" tabindex="1" required pattern="[A-Za-zÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ \t\r\n\f]*$" placeholder="Name">
+<input type="text" id="txtName" style="position:absolute;left:148px;top:143px;width:198px;height:23px;line-height:23px;z-index:6;" name="name" value="" tabindex="1" required pattern="[A-Za-zÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ \t\r\n\f]*$" placeholder="Name">
 <div id="wb_Text5" style="position:absolute;left:28px;top:173px;width:110px;height:16px;z-index:7;text-align:left;">
 <span style="color:#000000;font-family:Arial;font-size:13px;">Email</span></div>
 <input type="email" id="txtEmail" style="position:absolute;left:149px;top:173px;width:198px;height:23px;line-height:23px;z-index:8;" name="email" value="" tabindex="2" required placeholder="Email">
 <div id="wb_Text6" style="position:absolute;left:28px;top:203px;width:110px;height:16px;z-index:9;text-align:left;">
-<span style="color:#000000;font-family:Arial;font-size:13px;">Password</span></div>
-<input type="password" id="txtPassword" style="position:absolute;left:148px;top:203px;width:198px;height:23px;line-height:23px;z-index:10;" name="password" value="" tabindex="3" autocomplete="off" placeholder="Password">
+<span style="color:#000000;font-family:Arial;font-size:13px;">New Password</span></div>
+<input type="password" id="txtPassword" style="position:absolute;left:148px;top:203px;width:198px;height:23px;line-height:23px;z-index:10;" name="password" value="" tabindex="3" autocomplete="off" placeholder="New Password">
 <div id="wb_Text7" style="position:absolute;left:28px;top:233px;width:110px;height:16px;z-index:11;text-align:left;">
 <span style="color:#000000;font-family:Arial;font-size:13px;">Confirm Password</span></div>
-<input type="password" id="Editbox4" style="position:absolute;left:148px;top:233px;width:198px;height:23px;line-height:23px;z-index:12;" name="txtCPassword" value="" tabindex="4" autocomplete="off" placeholder="Password">
+<input type="password" id="Editbox4" style="position:absolute;left:148px;top:233px;width:198px;height:23px;line-height:23px;z-index:12;" name="txtCPassword" value="" tabindex="4" autocomplete="off" placeholder="Confirm New Password">
 <div id="wb_Text8" style="position:absolute;left:280px;top:268px;width:54px;height:16px;z-index:13;text-align:left;">
 <span style="color:#000000;font-family:Arial;font-size:13px;">Admin</span></div>
-<input type="radio" id="RadioButton1" name="NewGroup" value="admin" style="position:absolute;left:250px;top:268px;z-index:14;" tabindex="5">
+<input type="radio" id="RadioButton1" name="role" value="admin" style="position:absolute;left:250px;top:268px;z-index:14;" tabindex="5">
 <div id="wb_Text9" style="position:absolute;left:198px;top:268px;width:45px;height:16px;z-index:15;text-align:left;">
 <span style="color:#000000;font-family:Arial;font-size:13px;">User</span></div>
-<input type="radio" id="RadioButton2" name="NewGroup" value="user" checked style="position:absolute;left:168px;top:268px;z-index:16;" tabindex="6">
-<input type="submit" id="Button1" name="btnAction" value="Submit" style="position:absolute;left:138px;top:311px;width:121px;height:25px;z-index:17;" tabindex="7">
-<input type="reset" id="Button2" name="" value="Reset" style="position:absolute;left:29px;top:311px;width:96px;height:25px;z-index:18;" tabindex="8">
+<input type="radio" id="RadioButton2" name="role" value="user" checked style="position:absolute;left:168px;top:268px;z-index:16;" tabindex="6">
+
+<input type="submit" id="btn_update" name="btnAction" value="Update" style="position:absolute;left:138px;top:311px;width:121px;height:25px;z-index:17;" tabindex="7">
+
+<input type="reset" id="btn_reset" name="btnAction" value="Reset" style="position:absolute;left:29px;top:311px;width:96px;height:25px;z-index:18;" tabindex="8">
+
 <div id="wb_Text10" style="position:absolute;left:28px;top:268px;width:90px;height:16px;z-index:19;text-align:left;">
 <span style="color:#000000;font-family:Arial;font-size:13px;">Role</span></div>
 <div id="wb_Text13" style="position:absolute;left:94px;top:25px;width:294px;height:40px;text-align:center;z-index:20;">
@@ -71,8 +87,30 @@ function ValidateuserForm(theForm)
 <img src="<?php echo base_url();?>/assets/images/user.png" id="Image19" alt=""></div>
 <div id="wb_Image21" style="position:absolute;left:62px;top:56px;width:27px;height:27px;z-index:22;">
 <img src="<?php echo base_url();?>/assets/images/up.png" id="Image21" alt=""></div>
-<select name="userList" size="1" id="Combobox1" style="position:absolute;left:29px;top:106px;width:320px;height:23px;z-index:23;" tabindex="0">
+
+
+
+
+<select name="userList" size="1" id="Combobox1" style="position:absolute;left:29px;top:106px;width:320px;height:23px;z-index:23;" onchange="dataupdate()" tabindex="0">
+<option>Please Select ID</option>
+  
+    <?php
+
+        foreach($data as $record)
+        {   
+            echo "<option value='    ".$record->id."//".$record->name."//".$record->email."//".$record->password."//".$record->role."          '>";
+                echo $record->id." -> ".$record->name;
+            echo "</option>";
+        }
+
+    ?>
+    
+    
 </select>
+
+
+
+
 <input type="submit" id="Button3" name="btnAction" value="Delete" style="position:absolute;left:270px;top:311px;width:78px;height:25px;z-index:24;" tabindex="7">
 </form>
 </div>

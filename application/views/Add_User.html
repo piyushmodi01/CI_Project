@@ -44,27 +44,36 @@ function ValidateuserForm(theForm)
 <div id="wb_Line2" style="position:absolute;left:473px;top:178px;width:388px;height:3px;z-index:23;">
 <img src="<?php echo base_url();?>assets/images/img0064.png" id="Line2" alt=""></div>
 <div id="wb_Form1" style="position:absolute;left:477px;top:93px;width:388px;height:328px;z-index:24;">
-<form name="userForm" method="post" action="" enctype="text/plain" id="Form1" onsubmit="return ValidateuserForm(this)">
+<form name="userForm" method="POST" action="User/add_user" enctype="multipart/form-data" id="Form1" onsubmit="return ValidateuserForm(this)">
 <div id="wb_Text4" style="position:absolute;left:28px;top:116px;width:110px;height:16px;z-index:5;text-align:left;">
+
 <span style="color:#000000;font-family:Arial;font-size:13px;">Name</span></div>
 <input type="text" id="txtName" style="position:absolute;left:148px;top:116px;width:198px;height:23px;line-height:23px;z-index:6;" name="name" value="" tabindex="1" required pattern="[A-Za-zÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ \t\r\n\f]*$" placeholder="Name">
 <div id="wb_Text5" style="position:absolute;left:28px;top:146px;width:110px;height:16px;z-index:7;text-align:left;">
+
 <span style="color:#000000;font-family:Arial;font-size:13px;">Email</span></div>
 <input type="email" id="txtEmail" style="position:absolute;left:148px;top:146px;width:198px;height:23px;line-height:23px;z-index:8;" name="email" value="" tabindex="2" required placeholder="Email">
 <div id="wb_Text6" style="position:absolute;left:28px;top:176px;width:110px;height:16px;z-index:9;text-align:left;">
+
 <span style="color:#000000;font-family:Arial;font-size:13px;">Password</span></div>
 <input type="password" id="txtPassword" style="position:absolute;left:148px;top:176px;width:198px;height:23px;line-height:23px;z-index:10;" name="password" value="" tabindex="3" autocomplete="off" placeholder="Password">
 <div id="wb_Text7" style="position:absolute;left:28px;top:206px;width:110px;height:16px;z-index:11;text-align:left;">
+
 <span style="color:#000000;font-family:Arial;font-size:13px;">Confirm Password</span></div>
 <input type="password" id="txtCPassword" style="position:absolute;left:148px;top:206px;width:198px;height:23px;line-height:23px;z-index:12;" name="cpassword" value="" tabindex="4" autocomplete="off" placeholder="Password">
 <div id="wb_Text8" style="position:absolute;left:280px;top:241px;width:54px;height:16px;z-index:13;text-align:left;">
+
 <span style="color:#000000;font-family:Arial;font-size:13px;">Admin</span></div>
-<input type="radio" id="RadioButton1" name="NewGroup" value="admin" style="position:absolute;left:250px;top:241px;z-index:14;" tabindex="5">
+<input type="radio" id="RadioButton1" name="role" value="admin" style="position:absolute;left:250px;top:241px;z-index:14;" tabindex="5">
 <div id="wb_Text9" style="position:absolute;left:198px;top:241px;width:45px;height:16px;z-index:15;text-align:left;">
+
 <span style="color:#000000;font-family:Arial;font-size:13px;">User</span></div>
-<input type="radio" id="RadioButton2" name="NewGroup" value="user" checked style="position:absolute;left:168px;top:241px;z-index:16;" tabindex="6">
-<input type="submit" id="Button1" name="" value="Submit" style="position:absolute;left:149px;top:284px;width:200px;height:25px;z-index:17;" tabindex="7">
-<input type="reset" id="Button2" name="" value="Reset" style="position:absolute;left:29px;top:284px;width:96px;height:25px;z-index:18;" tabindex="8">
+<input type="radio" id="RadioButton2" name="role" value="user" checked style="position:absolute;left:168px;top:241px;z-index:16;" tabindex="6">
+
+<input type="submit" id="Button1" name="btnAction" value="Submit" style="position:absolute;left:149px;top:284px;width:200px;height:25px;z-index:17;" tabindex="7">
+
+<input type="reset" id="Button2" name="btnAction" value="Reset" style="position:absolute;left:29px;top:284px;width:96px;height:25px;z-index:18;" tabindex="8">
+
 <div id="wb_Text10" style="position:absolute;left:28px;top:241px;width:90px;height:16px;z-index:19;text-align:left;">
 <span style="color:#000000;font-family:Arial;font-size:13px;">Role</span></div>
 <div id="wb_Text13" style="position:absolute;left:94px;top:25px;width:294px;height:40px;text-align:center;z-index:20;">
