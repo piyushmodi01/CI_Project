@@ -181,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //returns the object with customer details
         public function getUserObject($id){
                 $this->load->database();
-                if($c_id==-1){
+                if($id==-1){
                     
                     $result=$this->db->select('*')->from('user_login')->get()->result();
                     return($result);
