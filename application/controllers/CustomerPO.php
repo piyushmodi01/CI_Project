@@ -13,7 +13,7 @@ class CustomerPO extends MY_Controller{
             
     }
     
-    public function addPO()
+    public function addCustomerPO()
     {
         
         $customerPO_data=$this->input->post();
@@ -28,12 +28,21 @@ class CustomerPO extends MY_Controller{
             if ($this->Dbmodel->addCustomerPO($customerPO_data)==1) {
               echo "<script>alert('Success!')</script>";
               redirect("../CustomerPO","refresh");
-                }
-        
-        print_r($data);
-        
+                }   
         
     
+    }
+    
+    
+    public function UpdateCustomerPO(){
+        
+        
+        $customerData['data']=$this->Dbmodel->getCustomerObject(-1);
+        
+        
+        $this->load->view('update_customer_PO.html',$customerData);
+        
+        
     }
     
 }
