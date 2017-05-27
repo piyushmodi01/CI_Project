@@ -356,7 +356,91 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         
         
+        //CUSTOMER INVOICE METHODS
+                        
+        //Adds the customer to the database
+        public function addCustomerInvoice($resultArray){
+           
+            //Convrting Plain Text Password to MD5
+            
+            if(! $this->db->insert("customer_invoice",$resultArray)){
+                return 0;
+            }
+            else {
+                return 1;
+            }
+        }
         
+        //returns the array with customer details
+        public function getCustomerInvoice($bill_no){
+                $this->load->database();
+                if($c_id==-1){
+                    
+                    $result=$this->db->select('*')->from('customer_invoice')->get()->result_array();
+                    return($result);
+                    
+                }
+                else{
+                    
+                    $result=$this->db->select('*')->from('customer_invoice')->where('bill_no',$cpo_id)->get()->result_array();
+                    return($result);
+                    
+                
+                }
+            
+        
+        }
+    
+        //returns the object with customer details
+        public function getCustomerPOObject($bill_no){
+                $this->load->database();
+                if($bill_no==-1){
+                    
+                    $result=$this->db->select('*')->from('customer_invoice')->get()->result();
+                    return($result);
+                        
+                }
+                else{
+                    
+                    $result=$this->db->select('*')->from('customer_invoice')->where('bill_no',$bill_no)->get()->result();
+                    return($result);
+                    
+                
+                }
+            
+        
+        }
+        
+        //Updates Customer Info
+        public function updateCustomerPO($bill_no, $newDataArray){
+
+            $this->load->database();
+
+            if($newDataArray['bill_no']!=$bill_no)
+                $newDataArray['bill_no']=$bill_no;
+
+
+            if(! $this->db->where("bill_no",$bill_no)->update("customer_invoice",$newDataArray)){
+                return 0;
+            }
+            else{
+             return 1;
+            }
+
+
+        }
+        
+        //delete Specific Customer Details
+        public function deleteCustomerPO(bill_no){
+            $this->db->where('bill_no', $bill_no);
+            
+            if(!$this->db->delete('customer_po'))
+                return 0;
+            else
+                return 1;
+        }
+        
+        //----------------------------------------------------------------------- 
         
         
         
