@@ -392,7 +392,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
     
         //returns the object with customer details
-        public function getCustomerPOObject($bill_no){
+        public function getCustomerInvoiceObject($bill_no){
                 $this->load->database();
                 if($bill_no==-1){
                     
@@ -412,7 +412,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         
         //Updates Customer Info
-        public function updateCustomerPO($bill_no, $newDataArray){
+        public function updateCustomerInvoice($bill_no, $newDataArray){
 
             $this->load->database();
 
@@ -431,7 +431,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         
         //delete Specific Customer Details
-        public function deleteCustomerPO(bill_no){
+        public function deleteCustomerInvoice(bill_no){
             $this->db->where('bill_no', $bill_no);
             
             if(!$this->db->delete('customer_po'))
