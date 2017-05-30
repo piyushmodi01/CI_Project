@@ -431,7 +431,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         
         //delete Specific Customer Details
-        public function deleteCustomerInvoice(bill_no){
+        public function deleteCustomerInvoice($bill_no){
             $this->db->where('bill_no', $bill_no);
             
             if(!$this->db->delete('customer_po'))
