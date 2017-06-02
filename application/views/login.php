@@ -36,6 +36,9 @@
     </form>
 </div>
 
-
+<?php
+if (isset($errMsg))
+    echo "<p class=txt-danger>$errMsg;</p>";
+?>
 <?php include('public_footer.php');?>
 
