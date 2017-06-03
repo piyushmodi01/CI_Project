@@ -11,21 +11,22 @@
                 <strong>Oh snap!</strong> <?php echo $err;?>
             </div>
             <?php endif;?>
+
             <div class="form-group">
                 <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                 <div class="col-lg-5">
-                    <?php echo form_input(['class'=>'form-control','placeholder'=>'Enter Email','type'=>'text','id'=>'txtEmail','name'=>'email','value'=>set_value('email')])?>
+                    <?php echo form_input(['class'=>'form-control','placeholder'=>'Enter Email','type'=>'text','id'=>'txtEmail','required'=>'','name'=>'email','value'=>set_value('email')])?>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <?php echo form_error('email');?>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword" class="col-lg-2 control-label">Password</label>
                 <div class="col-lg-5">
-                    <?php echo form_password(['class'=>'form-control','placeholder'=>'Enter Password','id'=>'txtPassword','name'=>'password'])?>
+                    <?php echo form_password(['class'=>'form-control','placeholder'=>'Enter Password','required'=>'','id'=>'txtPassword','name'=>'password'])?>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <?php echo form_error('password');?>
                 </div>
             </div>
@@ -38,7 +39,8 @@
                 </div>
 
         </fieldset>
-    </form>
+
+    <?php echo form_close();?>
 </div>
 
 <?php

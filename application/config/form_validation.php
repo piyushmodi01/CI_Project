@@ -20,7 +20,35 @@ $config = array(
             'rules' => 'required'
         )
 
+    ),
+
+
+
+    'addCustomer' => array(
+
+        array('field' => 'name',
+            'label' => 'Name',
+            'rules' => 'trim|required|alpha_numeric_spaces'
+        ),
+
+
+        array('field' => 'address',
+            'label' => 'Address',
+             'rules' => 'trim'
+         ),
+
+         array('field' => 'email',
+            'label' => 'Email',
+            'rules' => 'valid_email'
+         ),
+
+        array('field' => 'pan_no',
+            'label' => 'PAN Number',
+            'rules' => 'required|exact_length[10]|alpha_numeric'
+        )
+
     )
+
 
 
 );

@@ -20,7 +20,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Arden Telicommuniations &nbsp;&nbsp;|&nbsp;&nbsp; Admin Dashboard</a>
+            <div class="navbar-brand">Arden Telicommuniations &nbsp;&nbsp;|&nbsp;&nbsp; Admin Dashboard</div>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

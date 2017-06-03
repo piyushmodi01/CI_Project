@@ -21,13 +21,13 @@
                 <span class="icon-bar"></span>
 
             </button>
-            <a class="navbar-brand" href="#">Arden Telicommuniations &nbsp;&nbsp;|&nbsp;&nbsp; User Dashboard</a>
+            <div class="navbar-brand">Arden Telicommuniations &nbsp;&nbsp;|&nbsp;&nbsp; User Dashboard</div>
 
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="UserDashboard/logout">Logout</a></li>
+                <li><a href="<?php echo base_url();?>UserDashboard/logout">Logout</a></li>
             </ul>
         </div>
     </div>
