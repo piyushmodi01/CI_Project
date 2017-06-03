@@ -6,7 +6,23 @@ class UserDashboard extends CI_Controller
 
     public function index()
     {
-        $this->load->view('user/userDashboard');
+
+        if($role=$this->session->userdata('role')){
+            if($role=='admin'){
+                return redirect('adminDashboard');
+            }
+            else if($role=='user') {
+
+                $this->load->view('user/userDashboard');
+            }
+
+        }
+        else{
+            return redirect('login');
+        }
+
+
+
 
     }
 

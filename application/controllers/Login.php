@@ -6,7 +6,19 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-        $this->load->view('login.php');
+	    if($role=$this->session->userdata('role')){
+	            if($role=='admin'){
+	                return redirect('adminDashboard');
+	            }
+	            else if($role=='user') {
+                    return redirect('userDashboard');
+                }
+
+        }
+        else{
+            $this->load->view('login.php');
+        }
+
 	}
 
 
@@ -32,13 +44,13 @@ class Login extends CI_Controller {
                 if ($role == "admin") {
 
                     $this->session->set_userdata($result);
-                    redirect('AdminDashboard');
+                   return  redirect('AdminDashboard');
 
 
                 } else if ($role == "user") {
 
                     $this->session->set_userdata($result);
-                    redirect('UserDashboard');
+                   return  redirect('UserDashboard');
 
                 } else {
 
@@ -47,9 +59,9 @@ class Login extends CI_Controller {
 
 
             } else {
+                $this->session->set_flashdata('login_failed','Wrong Crediantials Entered. Please Try Again.');
+                return redirect('login');
 
-                $errMsg = "Wrong Credintials. Email or Password is wrong.";
-                $this->load->view('login.php', $errMsg);
             }
 
         } else {

@@ -6,9 +6,19 @@ class AdminDashboard extends CI_Controller
 
     public function index()
     {
+        if($role=$this->session->userdata('role')){
+            if($role=='admin'){
+                $this->load->view('admin/adminDashboard');
+            }
+            else if($role=='user') {
+                return redirect('userDashboard');
+            }
 
-        $name = $this->session->get_userdata('name');
-        $this->load->view('admin/adminDashboard', $name);
+        }
+        else{
+            return redirect('login');
+        }
+
 
     }
 
