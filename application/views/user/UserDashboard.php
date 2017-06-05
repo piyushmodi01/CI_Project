@@ -17,7 +17,7 @@
     <div class="panel-body">
         <div class="btn-group-justified">
             <a href="addCustomer" class="btn btn-default btn-lg">Add New</a>
-            <a href="addGST" class="btn btn-default btn-lg">Maintain GST</a>
+            <a href="maintainCustomerGST" class="btn btn-default btn-lg">Maintain GST</a>
             <a href="addCustomerPO" class="btn btn-default btn-lg">Add PO</a>
             <a href="addCustomerReciept" class="btn btn-default btn-lg">Add Reciept</a>
             <a href="addCustomerPayment" class="btn btn-default btn-lg">Add Payment</a>

@@ -122,8 +122,9 @@ include('user_header.php');
             <label class="col-md-2 control-label" for="date">Date</label>
             <div class="col-md-2">
                 <?php echo form_input(['id' => 'date', 'name' => 'date', 'placeholder' => 'Click Here', 'class' => 'form-control datepicker', 'required' => '', 'type' => 'text', 'readonly' => '', 'value' => set_value('date')]); ?>
-
-
+            </div>
+            <div class="col-lg-5">
+                <?php echo form_error('date'); ?>
             </div>
         </div>
 
