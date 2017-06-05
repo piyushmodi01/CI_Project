@@ -5,11 +5,12 @@ class AddCustomer extends MY_Controller{
 
     public function index()
     {
-        if($this->session->has_userdata('role'))
+        if ($this->authorizeOnly(['user']))  //Add Roles if want to allow any other person
             $this->load->view('user/add_customer');
         else
             return redirect('Login');
     }
+
 
     public function saveCustomer(){
 

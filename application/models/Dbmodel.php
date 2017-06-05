@@ -147,5 +147,116 @@ class Dbmodel extends CI_Model
 //-----------------------------------------------------------------------
 
 
+    //CUSTOMER PO METHODS-----------------------------------------------------------
+
+
+    //Adds the customer to the database
+    public function addCustomerPO($resultArray)
+    {
+
+        //Convrting Plain Text Password to MD5
+
+        if (!$this->db->insert("customer_po", $resultArray)) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+//Remaining methods of PO to be edited asper new KEY
+//    //returns the array with customer details
+//    public function getCustomerPO($cpo_id){
+//        $this->load->database();
+//        if($c_id==-1){
+//
+//            $result=$this->db->select('*')->from('customer_po')->get()->result_array();
+//            return($result);
+//
+//        }
+//        else{
+//
+//            $result=$this->db->select('*')->from('customer_po')->where('cpo_id',$cpo_id)->get()->result_array();
+//            return($result);
+//
+//
+//        }
+//
+//
+//    }
+//
+//    //returns the object with customer details
+//    public function getCustomerPOObject($cpo_id){
+//        $this->load->database();
+//        if($cpo_id==-1){
+//
+//            $result=$this->db->select('*')->from('customer_po')->get()->result();
+//            return($result);
+//
+//        }
+//        else{
+//
+//            $result=$this->db->select('*')->from('customer_po')->where('cpo_id',$cpo_id)->get()->result();
+//            return($result);
+//
+//
+//        }
+//
+//
+//    }
+//
+//    //Return Last Array of Customer Table
+//    public function getLastCustomerPO(){
+//        $this->load->database();
+//
+//        //Getting Maximum CID from Database
+//        $maxID=$this->db->query('Select Max(cpo_id) as max from customer_po;')->result_array();
+//
+//        //Fetching All the details of Maximum CID
+//        $lastRecordArray=$this->db->select("*")->from('customer_po')->where('cpo_id',$maxID[0]['max'])->get()->result_array();
+//
+//
+//        return $lastRecordArray;
+//
+//    }
+//
+//    //Updates Customer Info
+//    public function updateCustomerPO($cpo_id, $newDataArray){
+//
+//        $this->load->database();
+//
+//        if($newDataArray['cpo_id']!=$cpo_id)
+//            $newDataArray['cpo_id']=$cpo_id;
+//
+//
+//        if(! $this->db->where("cpo_id",$cpo_id)->update("customer_po",$newDataArray)){
+//            return 0;
+//        }
+//        else{
+//            return 1;
+//        }
+//
+//
+//    }
+//
+//    //delete Specific Customer Details
+//    public function deleteCustomerPO($cpo_id){
+//        $this->db->where('cpo_id', $cpo_id);
+//
+//        if(!$this->db->delete('customer_po'))
+//            return 0;
+//        else
+//            return 1;
+//    }
+
+    //-----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 }//Model Closes here!
 ?>
