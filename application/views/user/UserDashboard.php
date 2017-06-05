@@ -41,9 +41,12 @@
                 <a href="#" class="btn btn-default btn-lg">Add PO</a>
                 <a href="#" class="btn btn-default btn-lg">Add Reciept</a>
                 <a href="#" class="btn btn-default btn-lg">Add Payment</a>
+                <a href="#" class="btn btn-default btn-lg">Add Payment</a>
+
             </div>
         </div>
     </div>
 </div>
+
 
 <?php include('user_footer.php'); ?>

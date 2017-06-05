@@ -33,11 +33,4 @@ class UserDashboard extends CI_Controller
 
     }
 
-    public function saveUser(){
-
-
-    }
-
-
-
 }

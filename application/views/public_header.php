@@ -5,7 +5,11 @@
     <title>CI_Project</title>
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.css');?>">
-
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.js'); ?>"></script>
 </head>
 <body>
 
@@ -26,7 +30,7 @@
 
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Login</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myLoginModal">Login</a></li>
             </ul>
         </div>
     </div>

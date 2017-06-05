@@ -47,7 +47,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="adminDashboard/logout">Logout</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">Logout</a></li>
             </ul>
         </div>
     </div>
