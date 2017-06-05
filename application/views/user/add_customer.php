@@ -57,7 +57,8 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="address">Address</label>
                 <div class="col-lg-5">
-                    <textarea class="form-control" id="address" name="address" placeholder="Address"></textarea>
+                    <textarea class="form-control" id="address" name="address" placeholder="Address"
+                              value="<?php echo set_value('address') ?>"></textarea>
                 </div>
 
             </div>

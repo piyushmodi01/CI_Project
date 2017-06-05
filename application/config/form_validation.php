@@ -47,6 +47,27 @@ $config = array(
             'rules' => 'required|exact_length[10]|alpha_numeric'
         )
 
+    ),
+
+
+    'addCustomerPO' => array(
+
+        array('field' => 'cpo_no',
+            'label' => 'Purchase Order Number',
+            'rules' => 'trim|required|alpha_numeric'
+        ),
+
+
+        array('field' => 'amount',
+            'label' => 'Amount',
+            'rules' => 'required|is_natural_no_zero'
+        ),
+
+        array('field' => 'date',
+            'label' => 'Date',
+            'rules' => 'required'
+        )
+
     )
 
 

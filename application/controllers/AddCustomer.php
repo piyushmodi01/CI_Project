@@ -5,18 +5,19 @@ class AddCustomer extends MY_Controller{
 
     public function index()
     {
-          if($this->session->has_userdata('role'))
-            $this->load->view('user/add_customer');
+            if ($this->authorizeOnly(['user']))  //Add Roles if want to allow any other person
+                    $this->load->view('user/add_customer');
         else
             return redirect('Login');
     }
+
 
     public function saveCustomer(){
 
         $this->form_validation->set_error_delimiters("<p class=text-danger>","</p>");
         if ($this->form_validation->run('addCustomer') == true) {
 
-            // $this->session->set_flashdata('save','Your Record has been Saved Successfully.');
+             $this->session->set_flashdata('save','Your Record has been Saved Successfully.');
 
 
             //saving Record Here

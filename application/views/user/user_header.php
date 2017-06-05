@@ -4,7 +4,28 @@
     <meta charset="UTF-8">
     <title>CI_Project</title>
 
+
+    <!-- Scripts for Bootstrap -->
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.js'); ?>"></script>
+
+
+    <!-- Script for Date Picker-->
+    <script src="<?php echo base_url('assets/js/bootstrap-datepicker.js') ?>"></script>
+    <script>
+        $(function () {
+            $('.datepicker').datepicker({
+                format: 'yyyy/mm/dd'
+            });
+
+        });</script>
+
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/datepicker.css'); ?>">
 
 </head>
 <body>
