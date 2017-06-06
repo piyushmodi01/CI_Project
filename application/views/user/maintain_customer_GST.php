@@ -214,6 +214,40 @@ include('user_header.php');
     </table>
 
 
+    <!--Ajax Try-->
+
+
+    <button type='button' name='getdata' id='getdata'>Get Data.</button>
+
+    <div id='result_table' style="color:black;">
+        hola amigo
+    </div>
+
+    <script type='text/javascript' language='javascript'>
+        $('#getdata').click(function () {
+            $.ajax({
+                url: 'http://[::1]/ci_project/index.php/maintainCustomerGST/getDataInAjax/1',
+                type: 'POST',
+                dataType: 'json',
+                error: function () {
+                    $('#result_table').append('<p>goodbye world</p>');
+                },
+
+                success: function (details) {
+
+                    $('#result_table').append('<p>hello world</p>' + details
+                    ])
+                    ;
+
+                    console.log(details);
+                    console.log(details.toString());
+
+                } // End of success function of ajax form
+            }); // End of ajax call
+
+        });
+    </script>
+
 
     <!--    GST Table Ends Here    -->
 

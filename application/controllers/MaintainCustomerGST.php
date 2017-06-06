@@ -23,4 +23,20 @@ class MaintainCustomerGST extends MY_Controller{
 
     }
 
+    public function getDataInAjax($c_id)
+    {
+
+        if ($this->authorizeOnly(['user'])) {
+
+            $data['details'] = $this->Dbmodel->getCustomerGSTArray($c_id);
+            $this->output->set_content_type('application/json');
+            $this->output->set_output(json_encode($data));
+
+        } else {
+            redirect('Login');
+        }
+
+
+    }
+
 }
