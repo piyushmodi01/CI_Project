@@ -23,7 +23,7 @@ include('user_header.php');
 </ul>
 
 <div class="container ">
-    <?php echo form_open('addCustomerPO/saveCustomerGST', ['class' => 'form-horizontal']); ?>
+    <?php echo form_open('MaintainCustomerGST/saveCustomerGST', ['class' => 'form-horizontal']); ?>
 
     <fieldset>
 
@@ -72,7 +72,7 @@ include('user_header.php');
             </div>
 
             <div class="col-lg-5">
-                <?php echo form_error('selectCustomer'); ?>
+                <?php echo form_error('c_id'); ?>
             </div>
 
 
@@ -86,7 +86,7 @@ include('user_header.php');
 
 
                 <select id="state" name="state" class="form-control">
-                    <option value="0">Please Select State</option>
+                    <option value="">Please Select State</option>
                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>

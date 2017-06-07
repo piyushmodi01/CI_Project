@@ -68,9 +68,27 @@ $config = array(
             'rules' => 'required'
         )
 
+    ),
+
+
+    'saveCustomerGST' => array(
+
+        array('field' => 'c_id',
+            'label' => 'Customer ID',
+            'rules' => 'is_natural_no_zero|required'
+        ),
+
+        array('field' => 'gstn_no',
+            'label' => 'GST Number',
+            'rules' => 'alpha_numeric|required|is_unique[customer_gstn.gstn_no]'
+        ),
+
+        array('field' => 'state',
+            'label' => 'State',
+            'rules' => 'required'
+        )
+
     )
-
-
 
 );
 
