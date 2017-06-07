@@ -183,64 +183,41 @@ include('user_header.php');
 
 <!--    GST Table Starts Here    -->
 
-    <br/>    <br/>    <br/>
+    <br/>    <br/> 
+
     <h2>GST Number List</h2>
-    <table class="table table-striped table-hover ">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>State</th>
-            <th>GST Number</th>
-            <th>Image Location</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>1</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td><button class="btn btn-sm btn-danger">Delete</button></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td><button class="btn btn-sm btn-danger">Delete</button></td>
-        </tr>
-        </tbody>
-    </table>
-
-
     <!--Ajax Try-->
 
-
-    <button type='button' name='getdata' id='getdata'>Get Data.</button>
-
     <div id='result_table' style="color:black;">
-        hola amigo
+       <div class='well'>Please Select Customer to see GSTN Records.</div>
     </div>
 
     <script type='text/javascript' language='javascript'>
-        $('#getdata').click(function () {
+
+        $('#c_id').change(function () {
+var id=document.getElementById('c_id').value;
             $.ajax({
-                url: 'http://[::1]/ci_project/index.php/maintainCustomerGST/getDataInAjax/1',
+                url: 'http://[::1]/ci_project/index.php/maintainCustomerGST/getDataInAjax/'+id,
                 type: 'POST',
                 dataType: 'json',
                 error: function () {
-                    $('#result_table').append('<p>goodbye world</p>');
+                     $('#result_table').html("<div class=\'well\'>No GSTN Record is available for this Customer.</div>");
                 },
 
-                success: function (details) {
+                success: function (data) {
 
-                    $('#result_table').append('<p>hello world</p>' + details
-                    ])
-                    ;
+                  $('#result_table').html(data);
 
-                    console.log(details);
-                    console.log(details.toString());
+    //                 $('#result_table').append('<p>hello world</p>');
+    //                 alert("Success!");
+    //                   var re = $.parseJSON(data);
+    //                   alert(re);
+    // //                  $.each(data.datails, function(k, v) {
+    // //               $.each(v, function(key, value) {
+    // //               $('#result_table').append('<br/>' + key + ' : ' + value);
+    // //     })
+    // // })
+                 
 
                 } // End of success function of ajax form
             }); // End of ajax call

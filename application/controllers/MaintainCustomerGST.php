@@ -76,13 +76,62 @@ class MaintainCustomerGST extends MY_Controller{
 
         if ($this->authorizeOnly(['user'])) {
 
-            $data['details'] = $this->Dbmodel->getCustomerGSTArray($c_id);
-            $this->output->set_content_type('application/json');
-            $this->output->set_output(json_encode($data));
+            $data= $this->Dbmodel->getCustomerGSTObject($c_id);
+             $sno=0;
+             // print_r($data);
+             // print_r($data[0]);
+    $table_result='<div class=\'container\'><table class="table table-striped table-hover ">
+                         <thead>
+                         <tr>
+                            <th>#</th>
+                            <th>State</th>
+                            <th>GST Number</th>
+                            <th>Image Location</th>
+                            <th>Action</th>
+                        </tr>
+                      </thead>
+                    <tbody>';
+
+
+
+           if(count($data)>0){
+
+          foreach ($data as $key => $data)
+           {
+             //$table_result .='<table="'.$data->c_id.'">'.$data->state.'</table>';
+              $table_result .='
+               <tr>
+                   <td>'.++$sno.'</td>
+                   <td>'.$data->state.'</td>
+                   <td>'.$data->gstn_no.'</td>
+                   <td>'.$data->gstn_image.'</td>
+                   <td><a href=\'MaintainCustomerGST\deleteGST\\'.$data->gstn_no.'\' class=\'btn btn-sm btn-danger\' id=>DELETE</a></td>
+               </tr>';
+          }
+          $table_result.='</tbody></table></div> ';
+
+          echo json_encode( $table_result);
+         }
+
+
+
+            // $this->output->set_content_type('application/json');
+            //$this->output->set_output(json_encode($data));
+             //echo json_encode($data);
 
         } else {
             redirect('Login');
         }
+
+
+    }
+
+
+//    Function to delete specific GSTN from the table (passed by parameter)
+    public function deleteGST($gst_no){
+
+      $this->Dbmodel->deleteCustomerGSTN($gst_no);
+      redirect('MaintainCustomerGST');
 
 
     }
