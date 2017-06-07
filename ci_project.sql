@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2017 at 01:54 PM
+-- Generation Time: Jun 07, 2017 at 11:44 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -64,7 +64,12 @@ CREATE TABLE IF NOT EXISTS `customer_gstn` (
 
 INSERT INTO `customer_gstn` (`c_id`, `gstn_no`, `state`, `gstn_image`) VALUES
 (1, '12134568108as', 'rajasthan', ''),
-(1, '123123213', 'Bihar', '');
+(1, '123123213', 'Bihar', ''),
+(1, 'asdasd', '0', ''),
+(2, 'asdasdasd', 'Arunachal Pradesh', ''),
+(1, 'asdasdasda', 'Andhra Pradesh', ''),
+(1, 'asdasdasdasd', 'Arunachal Pradesh', ''),
+(2, 'asdasdasdasdasdasd', 'Andhra Pradesh', '');
 
 -- --------------------------------------------------------
 
@@ -144,6 +149,7 @@ CREATE TABLE IF NOT EXISTS `vendor_additional_details` (
 CREATE TABLE IF NOT EXISTS `vendor_details` (
   `v_id` int(4) NOT NULL,
   `name` varchar(50) NOT NULL,
+  `contact_person` varchar(50) NOT NULL,
   `address` text NOT NULL,
   `country` varchar(50) NOT NULL,
   `landline_no` varchar(20) NOT NULL,
@@ -151,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `vendor_details` (
   `fax_no` varchar(13) NOT NULL,
   `email` int(50) NOT NULL,
   `type` varchar(10) NOT NULL,
-  `status` varchar(10) NOT NULL
+  `status` varchar(10) NOT NULL DEFAULT 'unapproved'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
