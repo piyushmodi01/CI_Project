@@ -8,7 +8,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                <a href="<?php echo base_url(); ?>UserDashboard/logout">
+                <a href="adminDashboard/logout">
                     <button type="button" class="btn btn-primary">Yes</button>
                 </a>
             </div>

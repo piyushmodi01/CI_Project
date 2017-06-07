@@ -5,14 +5,25 @@
     <title>CI_Project</title>
 
 
+
     <!-- Scripts for Bootstrap -->
 
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.js"
-            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-            crossorigin="anonymous"></script>
+    <script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.js'); ?>"></script>
 
+
+    <script type="text/javascript">
+
+        function showHide(){
+
+            if(document.getElementById('directVendor').checked)
+                document.getElementById('extraInfo').style.display="block";
+            if(document.getElementById('indirectVendor').checked)
+                document.getElementById('extraInfo').style.display="none";
+
+            }
+
+    </script>
 
     <!-- Script for Date Picker-->
     <script src="<?php echo base_url('assets/js/bootstrap-datepicker.js') ?>"></script>

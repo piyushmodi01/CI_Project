@@ -37,7 +37,7 @@
         </div>
         <div class="panel-body">
             <div class="btn-group-justified btn-group">
-                <a href="#" class="btn btn-default btn-lg">Add New</a>
+                <a href="AddVendor" class="btn btn-default btn-lg">Add New</a>
                 <a href="#" class="btn btn-default btn-lg">Add PO</a>
                 <a href="#" class="btn btn-default btn-lg">Add Reciept</a>
                 <a href="#" class="btn btn-default btn-lg">Add Payment</a>

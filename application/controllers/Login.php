@@ -3,8 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
-
-	public function index()
+    public function index()
 	{
 	    if($role=$this->session->userdata('role')){
 	            if($role=='admin'){
@@ -20,7 +19,6 @@ class Login extends CI_Controller {
         }
 
 	}
-
 
     public function authenticate()
     {
