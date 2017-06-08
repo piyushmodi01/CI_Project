@@ -124,7 +124,6 @@ class Dbmodel extends CI_Model
     {
         return $resultArray = $this->db->select("*")->from('customer_gstn')->where('c_id', $customerID)->get()->result_array();
     }
-
     public function deleteCustomerGSTN($gst_no){
 
         $this->db->where('gstn_no',$gst_no);
@@ -137,5 +136,77 @@ class Dbmodel extends CI_Model
 
     }
     //---------------------------------------------------------------------------
+    //Vendor NUMBER METHODS----------------------------------------------------------------
+    //Adds the VendorDirect to the database
+    public function addVendorBasic($resultArray){
+        if(! $this->db->insert("vendor_details",$resultArray)){
+            return 0;
+        }
+        else {
+            return 1;
+        }
+    }
+    //Adds the 7090568907VendorIndirect to the database
+    public function addVendorExtra($resultArray){
+        if(! $this->db->insert("vendor_additional_details",$resultArray)){
+            return 0;
+        }
+        else {
+            return 1;
+        }
+    }
+    //returns the array with customer details
+    public function getVendorArray($v_id){
+        $this->load->database();
+        if($v_id==-1){
+            $result=$this->db->select('*')->from('vendor_details')->get()->result_array();
+            return($result);
+        }
+        else{
+            $result=$this->db->select('*')->from('vendor_details')->where('v_id',$v_id)->get()->result_array();
+            return($result);
+        }
+    }
+    //returns the object with customer details
+    public function getVendorObject($v_id){
+        $this->load->database();
+        if($v_id==-1){
+            $result=$this->db->select('*')->from('customer_details')->get()->result();
+            return($result);
+        }
+        else{
+            $result=$this->db->select('*')->from('customer_details')->where('c_id',$v_id)->get()->result();
+            return($result);
+        }
+    }
+    //Return Last Array of Customer Table
+    public function getLastVendor(){
+        //Getting Maximum CID from Database
+        $maxID=$this->db->query('Select Max(v_id) as max from vendor_details;')->result_array();
+        //Fetching All the details of Maximum CID
+        $lastRecordArray=$this->db->select("*")->from('vendor_details')->where('v_id',$maxID[0]['max'])->get()->result_array();
+        return $lastRecordArray;
+    }
+    //Updates Customer Info
+    public function updateVendor($v_id, $newDataArray){
+        $this->load->database();
+        if($newDataArray['c_id']!=$v_id)
+            $newDataArray['c_id']=$v_id;
+        if(! $this->db->where("v_id",$v_id)->update("vendor_details",$newDataArray)){
+            return 0;
+        }
+        else{
+            return 1;
+        }
+    }
+    //delete Specific Customer Details
+    public function deleteVendor($v_id){
+        $this->db->where('v_id', $v_id);
+        if(! $this->db->delete('vendor_details'))
+            return 0;
+        else
+            return 1;
+    }
+
 }//Model Closes here!
 ?>

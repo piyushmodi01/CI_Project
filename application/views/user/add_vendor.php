@@ -14,7 +14,7 @@
 
 
 <div class="container">
-    <form class="form-horizontal" action="AddVendor/saveVendor">
+    <?php echo form_open('AddVendor/saveVendor',['class'=>'form-horizontal','enctype'=>'multipart/form-data']); ?>
 
 
 
@@ -50,10 +50,10 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="name">Vendor Name</label>
                         <div class="col-md-5">
-                            <input id="name" name="name" placeholder="Vendor Name" class="form-control input-md"
-                                   
-                                   type="text">
-
+                            <?php echo form_input(['id'=>'name', 'name'=>'name', 'placeholder'=>'Vendors Name', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('name')])?>
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('name');?>
                         </div>
                     </div>
 
@@ -61,10 +61,11 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="contact_person">Contact Person</label>
                         <div class="col-md-5">
-                            <input id="contact_person" name="contact_person" placeholder="Name"
-                                   class="form-control input-md"
-                                   type="text">
+                            <?php echo form_input(['id'=>'contact_person', 'name'=>'contact_person', 'placeholder'=>'Name', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('contact_person')])?>
 
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('contact_person');?>
                         </div>
                     </div>
 
@@ -74,6 +75,9 @@
                         <div class="col-md-5">
                             <textarea class="form-control" id="address" name="address"
                                       placeholder="Address of the Vendor"></textarea>
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('address');?>
                         </div>
                     </div>
 
@@ -334,10 +338,10 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="mobile_no">Mobile Number</label>
                         <div class="col-md-5">
-                            <input id="mobile_no" name="mobile_no" placeholder="+91-9999888877"
-                                   class="form-control input-md"
-                                    type="text">
-
+                            <?php echo form_input(['id'=>'mobile_no', 'name'=>'mobile_no', 'placeholder'=>'+91-9999888877', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('mobile_no')])?>
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('mobile_no');?>
                         </div>
                     </div>
 
@@ -345,10 +349,10 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="landline_no">Landline Number</label>
                         <div class="col-md-5">
-                            <input id="landline_no" name="landline_no" placeholder="+91-141-2523650"
-                                   class="form-control input-md"
-                                   type="text">
-
+                            <?php echo form_input(['id'=>'landline_no', 'name'=>'landline_no', 'placeholder'=>'+91-141-2523650', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('landline_no')])?>
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('landline_no');?>
                         </div>
                     </div>
 
@@ -356,9 +360,12 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="fax_no">Fax Number</label>
                         <div class="col-md-5">
-                            <input id="fax_no" name="fax_no" placeholder="+91-141-2222555" class="form-control input-md"
-                                   type="text">
 
+                            <?php echo form_input(['id'=>'fax_no', 'name'=>'fax_no', 'placeholder'=>'+91-141-5555555', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('fax_no')])?>
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('fax_no');?>
                         </div>
                     </div>
 
@@ -366,9 +373,12 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="email">Email</label>
                         <div class="col-md-5">
-                            <input id="email" name="email" placeholder="JhonDoe@gmail.com" class="form-control input-md"
-                                   type="text">
 
+                            <?php echo form_input(['id'=>'email', 'name'=>'email', 'placeholder'=>'JhonDoe@gmail.com', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('email')])?>
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('email');?>
                         </div>
                     </div>
 
@@ -377,11 +387,12 @@
                         <label class="col-md-2 control-label" for="Type">Type</label>
                         <div class="col-md-5">
                             <label class="radio-inline" for="Type-0">
-                                <input name="type" id="directVendor" value="direct" checked="checked" type="radio" onClick="showHide()">
+
+                                <input name="type" id="directVendor" value="direct"  checked="checked" type="radio" onClick="showHide()">
                                 Direct
                             </label>
                             <label class="radio-inline" for="Type-1">
-                                <input name="type" id="indirectVendor" value="indirect" type="radio" onClick="showHide()">
+                                <input name="type" id="indirectVendor" value="indirect"  type="radio" onClick="showHide()">
                                 Indirect
                             </label>
                         </div>
@@ -392,7 +403,7 @@
             </div>
         </fieldset>
 
-        <fieldset id="extraInfo">
+        <fieldset id="extraInfo" >
             <div class="panel panel-default" id="statuoryDetails">
                 <div class="panel-heading">Statuory Information</div>
                 <div class="panel-body">
@@ -402,9 +413,12 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="tan_no">TAN Number</label>
                         <div class="col-md-5">
-                            <input id="tan_no" name="tan_no" placeholder="Tan Number" required class="form-control input-md"
-                                   type="text">
 
+                            <?php echo form_input(['id'=>'tan_no', 'name'=>'tan_no', 'placeholder'=>'Tan Number', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('tan_no')])?>
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('tan_no');?>
                         </div>
                     </div>
 
@@ -412,10 +426,14 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="pan_no">PAN Number</label>
                         <div class="col-md-5">
-                            <input id="pan_no" name="pan_no" placeholder="PAN Number" class="form-control input-md"
-                                   
-                                   type="text">
 
+
+                            <?php echo form_input(['id'=>'pan_no', 'name'=>'pan_no', 'placeholder'=>'PAN Number', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('pan_no')])?>
+
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('pan_no');?>
                         </div>
                     </div>
 
@@ -425,15 +443,18 @@
                         <div class="col-md-5">
                             <input id="pan_image" name="pan_image" class="input-file" type="file">
                         </div>
+
                     </div>
 
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="company_reg_no">Company Reg. Number</label>
                         <div class="col-md-5">
-                            <input id="company_reg_no" name="company_reg_no" placeholder="Company's Registration Number"
-                                   class="form-control input-md" type="text">
+                            <?php echo form_input(['id'=>'company_reg_no', 'name'=>'company_reg_no', 'placeholder'=>'Company\'s Registration Number', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('company_reg_no')])?>
 
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('company_reg_no');?>
                         </div>
                     </div>
 
@@ -441,10 +462,11 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="date_of_inc">Date Of Incorporation</label>
                         <div class="col-md-5">
-                            <input id="date_of_inc" name="date_of_inc" placeholder="YYYY/MM/DD"
-                                   class="form-control input-md"
-                                   type="text">
+                            <?php echo form_input(['id'=>'date_of_inc', 'name'=>'date_of_inc', 'placeholder'=>'DateOfIncorporation', 'class'=>'form-control input-md','readonly'=>'', 'type'=>'text', 'value'=>set_value('date_of_inc')])?>
 
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('date_of_inc');?>
                         </div>
                     </div>
 
@@ -452,9 +474,12 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="prov_fund_no">Provident Fund Number</label>
                         <div class="col-md-5">
-                            <input id="prov_fund_no" name="prov_fund_no" placeholder="Provident Fund Number"
-                                   class="form-control input-md" type="text">
 
+                            <?php echo form_input(['id'=>'prov_fund_no', 'name'=>'prov_fund_no', 'placeholder'=>'Provident Fund Number', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('prov_fund_no')])?>
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('prov_fund_no');?>
                         </div>
                     </div>
 
@@ -465,6 +490,7 @@
                         <div class="col-md-5">
                             <input id="pf_image" name="pf_image" class="input-file" type="file">
                         </div>
+
                     </div>
 
 
@@ -472,9 +498,12 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="esi_reg_no">ESI Registry Number</label>
                         <div class="col-md-5">
-                            <input id="esi_reg_no" name="esi_reg_no" placeholder="ESI Registry Number"
-                                   class="form-control input-md"
-                                   type="text">
+
+                            <?php echo form_input(['id'=>'esi_reg_no', 'name'=>'esi_reg_no', 'placeholder'=>'ESI Registry Number', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('esi_reg_no')])?>
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('esi_reg_no');?>
                         </div>
                     </div>
 
@@ -485,6 +514,7 @@
                         <div class="col-md-5">
                             <input id="esi_image" name="esi_image" class="input-file" type="file">
                         </div>
+
                     </div>
 
 
@@ -580,7 +610,7 @@
                 </div>
             </div>
             <div class="panel panel-default" id="bankDetails">
-                <div class="panel-heading">Basic Information</div>
+                <div class="panel-heading">Bank Details</div>
                 <div class="panel-body">
 
 
@@ -588,10 +618,13 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="bank_name">Bank Name</label>
                         <div class="col-md-5">
-                            <input id="bank_name" name="bank_name" placeholder="Bank Name" class="form-control input-md"
-                                   
-                                   type="text">
 
+                            <?php echo form_input(['id'=>'bank_name', 'name'=>'bank_name', 'placeholder'=>'Bank Name', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('bank_name')])?>
+
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('bank_name');?>
                         </div>
                     </div>
 
@@ -599,7 +632,10 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="bank_address">Bank Address</label>
                         <div class="col-md-5">
-                            <textarea class="form-control" id="bank_address" name="bank_address"></textarea>
+                            <textarea class="form-control" id="bank_address" name="bank_address" placeholder="Please Provide Address"> </textarea>
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('bank_address');?>
                         </div>
                     </div>
 
@@ -607,7 +643,7 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="bank_country">Bank Country</label>
                         <div class="col-md-5">
-                            <select id="country" name="country" class="form-control">
+                            <select id="bank_country" name="bank_country" class="form-control">
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
@@ -867,10 +903,13 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="branch_no">Branch Number</label>
                         <div class="col-md-5">
-                            <input id="branch_no" name="branch_no" placeholder="Branch Number"
-                                   class="form-control input-md"
-                                   type="text">
 
+                            <?php echo form_input(['id'=>'branch_no', 'name'=>'branch_no', 'placeholder'=>'Branch Number', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('branch_no')])?>
+
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('branch_no');?>
                         </div>
                     </div>
 
@@ -878,10 +917,13 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="account_no">Account Number</label>
                         <div class="col-md-5">
-                            <input id="account_no" name="account_no" placeholder="Bank Account Number"
-                                   class="form-control input-md"
-                                    type="text">
 
+                            <?php echo form_input(['id'=>'account_no', 'name'=>'account_no', 'placeholder'=>'Branch Number', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('account_no')])?>
+
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('account_no');?>
                         </div>
                     </div>
 
@@ -889,10 +931,13 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="ifsc_code">IFS Code</label>
                         <div class="col-md-5">
-                            <input id="ifsc_code" name="ifsc_code" placeholder="IFS Code" class="form-control input-md"
-                                   
-                                   type="text">
 
+                            <?php echo form_input(['id'=>'ifsc_code', 'name'=>'ifsc_code', 'placeholder'=>'IFS Code', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('ifsc_code')])?>
+
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('ifsc_code');?>
                         </div>
                     </div>
 
@@ -900,10 +945,13 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="swift_no">Swift Number</label>
                         <div class="col-md-5">
-                            <input id="swift_no" name="swift_no" placeholder="Swift Number"
-                                   class="form-control input-md"
-                                   type="text">
 
+                            <?php echo form_input(['id'=>'swift_no', 'name'=>'swift_no', 'placeholder'=>'SWIFT Number', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('swift_no')])?>
+
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('swift_no');?>
                         </div>
                     </div>
 
@@ -911,9 +959,13 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="iban_no">IBAN Number</label>
                         <div class="col-md-5">
-                            <input id="iban_no" name="iban_no" placeholder="IBAN Number" class="form-control input-md"
-                                   type="text">
 
+                            <?php echo form_input(['id'=>'iban_no', 'name'=>'iban_no', 'placeholder'=>'IBA Number', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('iban_no')])?>
+
+
+                        </div>
+                        <div class="col-lg-5">
+                            <?php echo form_error('iban_no');?>
                         </div>
                     </div>
 

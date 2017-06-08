@@ -48,6 +48,14 @@ include('user_header.php');
         <?php endif; ?>
 
 
+        <!--Message Printing after Deletion of GST Record -->
+        <?php if ($msg = $this->session->flashdata('info')): ?>
+            <div class="alert alert-dismissible alert-info">
+                <strong>Done!</strong> <?php echo $msg; ?>
+            </div>
+        <?php endif; ?>
+
+
         <!--        Message Display Ends Here     -->
 
 
@@ -207,17 +215,6 @@ var id=document.getElementById('c_id').value;
                 success: function (data) {
 
                   $('#result_table').html(data);
-
-    //                 $('#result_table').append('<p>hello world</p>');
-    //                 alert("Success!");
-    //                   var re = $.parseJSON(data);
-    //                   alert(re);
-    // //                  $.each(data.datails, function(k, v) {
-    // //               $.each(v, function(key, value) {
-    // //               $('#result_table').append('<br/>' + key + ' : ' + value);
-    // //     })
-    // // })
-                 
 
                 } // End of success function of ajax form
             }); // End of ajax call

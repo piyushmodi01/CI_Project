@@ -115,10 +115,6 @@ class MaintainCustomerGST extends MY_Controller{
 
 
 
-            // $this->output->set_content_type('application/json');
-            //$this->output->set_output(json_encode($data));
-             //echo json_encode($data);
-
         } else {
             redirect('Login');
         }
@@ -131,6 +127,7 @@ class MaintainCustomerGST extends MY_Controller{
     public function deleteGST($gst_no){
 
       $this->Dbmodel->deleteCustomerGSTN($gst_no);
+        $this->session->set_flashdata('info', 'Record has been successfully Deleted.');
       redirect('MaintainCustomerGST');
 
 
