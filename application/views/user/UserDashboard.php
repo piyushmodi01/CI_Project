@@ -38,10 +38,10 @@
         <div class="panel-body">
             <div class="btn-group-justified btn-group">
                 <a href="AddVendor" class="btn btn-default btn-lg">Add New</a>
-                <a href="#" class="btn btn-default btn-lg">Add PO</a>
-                <a href="#" class="btn btn-default btn-lg">Add Reciept</a>
-                <a href="#" class="btn btn-default btn-lg">Add Payment</a>
-                <a href="#" class="btn btn-default btn-lg">Add Payment</a>
+                <a href="maintainVendorGST" class="btn btn-default btn-lg">Maintain GST</a>
+                <a href="addVendorPO" class="btn btn-default btn-lg">Add PO</a>
+                <a href="addVendorReciept" class="btn btn-default btn-lg">Add Reciept</a>
+                <a href="addVendorPayment" class="btn btn-default btn-lg">Add Payment</a>
 
             </div>
         </div>

@@ -8,7 +8,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Dbmodel extends CI_Model
 {
-    //AUTHENTICATION METHODS------------------------------------------------
+    //AUTHENTICATION METHODS--------------------------------------------------
     //Authenticate User and return 0 or 1.
     public function authenticate($email, $pwd)
     {
@@ -31,8 +31,10 @@ class Dbmodel extends CI_Model
         $returnVal = array('role' => $result[0]['role'], 'name' => $result[0]['name']);
         return ($returnVal);
     }
-        //-----------------------------------------------------------------------
-    //CUSTOMER METHODS-------------------------------------------------------
+    //--------------------------------------------------------------------
+
+
+    //CUSTOMER METHODS--------------------------------------------------------
     //Adds the customer to the database
     public function addCustomer($resultArray){
         if(! $this->db->insert("customer_details",$resultArray)){
@@ -95,20 +97,33 @@ class Dbmodel extends CI_Model
         else
             return 1;
     }
-//-----------------------------------------------------------------------
-    //CUSTOMER PO METHODS-----------------------------------------------------------
+//---------------------------------------------------------------------------
+
+
+    //CUSTOMER PO METHODS----------------------------------------------------
     //Adds the customer to the database
     public function addCustomerPO($dataArray)
     {
         //Convrting Plain Text Password to MD5
-        if (!$this->db->insert("customer_po", $resultArray)) {
+        if (!$this->db->insert("customer_po", $dataArray)) {
             return 0;
         } else {
             return 1;
         }
     }
+
+    public function getCustomerPO($c_id)
+    {
+        if (!$data = $this->db->select("*")->from('customer_PO')->where('c_id', $c_id)->get()->result())
+            return 0;
+        else
+            return $data;
+
+    }
     //-----------------------------------------------------------------------
-    //CUSTOMER GST NUMBER METHODS----------------------------------------------------------------
+
+
+    //CUSTOMER GST NUMBER METHODS--------------------------------------------
     public function addCustomerGST($dataArray)
     {
         if (!$this->db->insert('customer_gstn', $dataArray))
@@ -135,8 +150,10 @@ class Dbmodel extends CI_Model
         
 
     }
-    //---------------------------------------------------------------------------
-    //Vendor NUMBER METHODS----------------------------------------------------------------
+    //------------------------------------------------------------------------
+
+
+    //Vendor NUMBER METHODS---------------------------------------------------
     //Adds the VendorDirect to the database
     public function addVendorBasic($resultArray){
         if(! $this->db->insert("vendor_details",$resultArray)){
@@ -171,11 +188,11 @@ class Dbmodel extends CI_Model
     public function getVendorObject($v_id){
         $this->load->database();
         if($v_id==-1){
-            $result=$this->db->select('*')->from('customer_details')->get()->result();
+            $result = $this->db->select('*')->from('vendor_details')->get()->result();
             return($result);
         }
         else{
-            $result=$this->db->select('*')->from('customer_details')->where('c_id',$v_id)->get()->result();
+            $result = $this->db->select('*')->from('vendor_details')->where('v_id', $v_id)->get()->result();
             return($result);
         }
     }
@@ -207,6 +224,55 @@ class Dbmodel extends CI_Model
         else
             return 1;
     }
+    //------------------------------------------------------------------------
+
+
+    //Vendor GST NUMBER METHODS---------------------------------------------
+    public function addVendorGST($dataArray)
+    {
+        if (!$this->db->insert('vendor_gstn', $dataArray))
+            return 0;
+        else
+            return 1;
+    }
+
+    public function getVendorGSTObject($vendorID)
+    {
+        return $resultArray = $this->db->select("*")->from('vendor_gstn')->where('v_id', $vendorID)->get()->result();
+    }
+
+    public function getVendorGSTArray($vendorID)
+    {
+        return $resultArray = $this->db->select("*")->from('customer_gstn')->where('c_id', $vendorID)->get()->result_array();
+    }
+
+    public function deleteVendorGSTN($gst_no)
+    {
+
+        $this->db->where('gstn_no', $gst_no);
+
+        if (!$this->db->delete('vendor_gstn'))
+            return 0;
+        else
+            return 1;
+
+
+    }
+    //-------------------------------------------------------------------------
+
+
+//Vendor PO NUMBER METHODS---------------------------------------------
+    public function addVendorPO($dataArray)
+    {
+
+        if (!$this->db->insert("vendor_po", $dataArray)) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    //-------------------------------------------------------------------------
 
 }//Model Closes here!
 ?>
