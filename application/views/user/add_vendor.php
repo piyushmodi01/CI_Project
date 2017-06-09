@@ -73,8 +73,7 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="address">Address</label>
                         <div class="col-md-5">
-                            <textarea class="form-control" id="address" name="address"
-                                      placeholder="Address of the Vendor"></textarea>
+                            <?php echo form_textarea(['class'=>'form-control','id'=>'address','name'=>'address','placeholder'=>'Please Provide Address','rows'=>'5' ,'value'=>set_value('address')])?>
                         </div>
                         <div class="col-lg-5">
                             <?php echo form_error('address');?>
@@ -632,7 +631,7 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="bank_address">Bank Address</label>
                         <div class="col-md-5">
-                            <textarea class="form-control" id="bank_address" name="bank_address" placeholder="Please Provide Address"> </textarea>
+                           <?php echo form_textarea(['class'=>'form-control','id'=>'bank_address','name'=>'bank_address','placeholder'=>'Please Provide Address', 'rows'=>'5','value'=>set_value('bank_address')])?>
                         </div>
                         <div class="col-lg-5">
                             <?php echo form_error('bank_address');?>
