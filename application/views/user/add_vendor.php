@@ -48,6 +48,7 @@
 
                     <!-- Text input-->
                     <div class="form-group">
+
                         <label class="col-md-2 control-label" for="name">Vendor Name</label>
                         <div class="col-md-5">
                             <?php echo form_input(['id'=>'name', 'name'=>'name', 'placeholder'=>'Vendors Name', 'class'=>'form-control input-md', 'type'=>'text', 'value'=>set_value('name')])?>
@@ -460,9 +461,8 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="date_of_inc">Date Of Incorporation</label>
-                        <div class="col-md-5">
-                            <?php echo form_input(['id'=>'date_of_inc', 'name'=>'date_of_inc', 'placeholder'=>'DateOfIncorporation', 'class'=>'form-control input-md','readonly'=>'', 'type'=>'text', 'value'=>set_value('date_of_inc')])?>
-
+                        <div class="col-md-2">
+                            <?php echo form_input(['id'=>'date_of_inc', 'name'=>'date_of_inc', 'placeholder'=>'Click Here', 'class'=>'form-control datepicker','readonly'=>'', 'type'=>'text', 'value'=>set_value('date_of_inc')])?>
                         </div>
                         <div class="col-lg-5">
                             <?php echo form_error('date_of_inc');?>

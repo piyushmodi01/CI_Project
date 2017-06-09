@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2017 at 11:44 AM
+-- Generation Time: Jun 09, 2017 at 07:46 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -63,13 +63,10 @@ CREATE TABLE IF NOT EXISTS `customer_gstn` (
 --
 
 INSERT INTO `customer_gstn` (`c_id`, `gstn_no`, `state`, `gstn_image`) VALUES
-(1, '12134568108as', 'rajasthan', ''),
 (1, '123123213', 'Bihar', ''),
-(1, 'asdasd', '0', ''),
-(2, 'asdasdasd', 'Arunachal Pradesh', ''),
-(1, 'asdasdasda', 'Andhra Pradesh', ''),
-(1, 'asdasdasdasd', 'Arunachal Pradesh', ''),
-(2, 'asdasdasdasdasdasd', 'Andhra Pradesh', '');
+(3, '345678', 'Bihar', ''),
+(1, '98765432', 'Assam', ''),
+(1, 'asdasdasda', 'Andhra Pradesh', '');
 
 -- --------------------------------------------------------
 
@@ -124,21 +121,31 @@ CREATE TABLE IF NOT EXISTS `vendor_additional_details` (
   `v_id` int(4) NOT NULL,
   `tan_no` varchar(20) NOT NULL,
   `pan_no` varchar(20) NOT NULL,
+  `pan_image` text NOT NULL,
   `company_reg_no` varchar(30) NOT NULL,
   `date_of_inc` date NOT NULL,
   `prov_fund_no` varchar(25) NOT NULL,
+  `pf_image` text NOT NULL,
   `esi_reg_no` varchar(25) NOT NULL,
+  `esi_image` text NOT NULL,
   `invoice_currency` varchar(50) NOT NULL,
   `bank_name` varchar(60) NOT NULL,
   `bank_address` text NOT NULL,
   `cheque_image` text NOT NULL,
-  `country` varchar(40) NOT NULL,
+  `bank_country` varchar(40) NOT NULL,
   `branch_no` varchar(20) NOT NULL,
   `account_no` varchar(25) NOT NULL,
   `ifsc_code` varchar(20) NOT NULL,
   `swift_no` varchar(30) NOT NULL,
   `iban_no` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vendor_additional_details`
+--
+
+INSERT INTO `vendor_additional_details` (`v_id`, `tan_no`, `pan_no`, `pan_image`, `company_reg_no`, `date_of_inc`, `prov_fund_no`, `pf_image`, `esi_reg_no`, `esi_image`, `invoice_currency`, `bank_name`, `bank_address`, `cheque_image`, `bank_country`, `branch_no`, `account_no`, `ifsc_code`, `swift_no`, `iban_no`) VALUES
+(5, '234567890', '2345678909876', '', '234567890987654', '0000-00-00', '23456789765432', '', '23456789', '', 'INR', 'asdasdasdasda', '  345tyhgfderf 345tyhgfderf 345tyhgfderf 345tyhgfderf', '', 'India', '23456789098765', '345678909876543', '34567890987654rfc', '', '');
 
 -- --------------------------------------------------------
 
@@ -155,10 +162,21 @@ CREATE TABLE IF NOT EXISTS `vendor_details` (
   `landline_no` varchar(20) NOT NULL,
   `mobile_no` varchar(13) NOT NULL,
   `fax_no` varchar(13) NOT NULL,
-  `email` int(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `type` varchar(10) NOT NULL,
   `status` varchar(10) NOT NULL DEFAULT 'unapproved'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vendor_details`
+--
+
+INSERT INTO `vendor_details` (`v_id`, `name`, `contact_person`, `address`, `country`, `landline_no`, `mobile_no`, `fax_no`, `email`, `type`, `status`) VALUES
+(1, 'asd', 'asd', 'asd', '', '', '', '', '', '', 'unapproved'),
+(2, 'Modi and Co', 'Piyush Modi', 'Mansarovar\r\nJaipur\r\n320202020asdasdasd', 'India', '9898989898', '9898989898', '', '', 'indirect', 'unapproved'),
+(3, 'Ayush and company', 'Ayush Soni', 'Bhangarghar\r\nhahahahaa\r\nhahahaha\r\nhuhuhuh', 'India', '98877787878', '9988998898', '', '', 'indirect', 'unapproved'),
+(4, 'adsas', 'sadasdasd', 'asdasdasdasdasasdasdasdasd', 'India', '', '2345676545678', '', '', 'indirect', 'unapproved'),
+(5, 'Vendor Name', 'Contact Person', ' 345tyhgfderf 345tyhgfderf 345tyhgfderf 345tyhgfderf', 'India', '', '1234567890', '', 'jhon@doe.com', 'direct', 'unapproved');
 
 -- --------------------------------------------------------
 
