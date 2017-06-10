@@ -33,15 +33,16 @@ class MaintainVendorGST extends MY_Controller
         if ($this->form_validation->run('saveVendorGST') == true) {
 
           $config = array(
-           'upload_path' => "./assets/upload/",
+           'upload_path' => "./assets/upload/AddVendor",
            'allowed_types' => "gif|jpg|png|jpeg",
-           'overwrite' => TRUE,
+           'overwrite' => False,
+           'encrypt_name'=> TRUE,
             );
 
             $this->load->library('upload',$config);
             $gstn_image=$this->upload->do_upload('gstn_image');
              $upload_gstn_image = $this->upload->data('file_name');
-              $picture_gstn_image="assets/upload/".$upload_gstn_image;
+              $picture_gstn_image="assets/upload/AddVendor/".$upload_gstn_image;
             $gstn_image = array('gstn_image' => $picture_gstn_image);
 
             //saving Record Here
@@ -114,7 +115,8 @@ class MaintainVendorGST extends MY_Controller
                    <td>' . ++$sno . '</td>
                    <td>' . $data->state . '</td>
                    <td>' . $data->gstn_no . '</td>
-                   <td>' . $data->gstn_image . '</td>
+                 
+                   <td><a href=\''.base_url($data->gstn_image).'\'target=\'_blank\'>'.$data->gstn_image .'</a></td>
                    <td><a href=\'MaintainVendorGST\deleteGST\\' . $data->gstn_no . '\' class=\'btn btn-sm btn-danger\' id=>DELETE</a></td>
                </tr>';
                 }

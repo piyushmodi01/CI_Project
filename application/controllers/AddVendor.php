@@ -21,16 +21,17 @@ class AddVendor extends MY_Controller
             $this->form_validation->set_error_delimiters("<p class=text-danger>", "</p>");
 
              $config = array(
-           'upload_path' => "./assets/upload/",
+           'upload_path' => "./assets/upload/AddVendor",
            'allowed_types' => "gif|jpg|png|jpeg",
-           'overwrite' => TRUE,
+           'overwrite' => FALSE,
+           'encrypt_name'=> TRUE,
                );
 
         // upload pan image in assests/upload(folder)
             $this->load->library('upload',$config);
             $pan_image=$this->upload->do_upload('pan_image');
              $upload_panimage = $this->upload->data('file_name');
-              $picture_panimage="assets/upload/".$upload_panimage;
+              $picture_panimage="assets/upload/AddVendor/".$upload_panimage;
             $pan_image = array('pan_image' => $picture_panimage);
 
          // upload provident_funnd image in assests/upload(folder)
@@ -38,7 +39,7 @@ class AddVendor extends MY_Controller
             $this->load->library('upload',$config);
             $pf_image=$this->upload->do_upload('pf_image');
              $upload_pf_image = $this->upload->data('file_name');
-              $picture_pf_image="assets/upload/".$upload_pf_image;
+              $picture_pf_image="assets/upload/AddVendor/".$upload_pf_image;
             $pf_image = array('pf_image' => $picture_pf_image);
 
        // upload Esi document image in assests/upload(folder)
@@ -46,7 +47,7 @@ class AddVendor extends MY_Controller
             $this->load->library('upload',$config);
             $esi_image=$this->upload->do_upload('esi_image');
              $upload_esi_image = $this->upload->data('file_name');
-              $picture_esi_image="assets/upload/".$upload_esi_image;
+              $picture_esi_image="assets/upload/AddVendor/".$upload_esi_image;
             $esi_image = array('esi_image' => $picture_esi_image);
 
             // upload cancelled cheque image in assests/upload(folder)
@@ -54,7 +55,7 @@ class AddVendor extends MY_Controller
             $this->load->library('upload',$config);
             $cheque_image=$this->upload->do_upload('cheque_image');
              $upload_cheque_image = $this->upload->data('file_name');
-              $picture_cheque_image="assets/upload/".$upload_cheque_image;
+              $picture_cheque_image="assets/upload/AddVendor/".$upload_cheque_image;
             $cheque_image = array('cheque_image' => $picture_cheque_image);
 
 

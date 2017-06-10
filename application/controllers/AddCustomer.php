@@ -22,20 +22,22 @@ class AddCustomer extends MY_Controller{
 
             //saving Record Here
              $config = array(
-           'upload_path' => "./assets/upload/",
+           'upload_path' => "./assets/upload/AddCustomer",
            'allowed_types' => "gif|jpg|png|jpeg",
-           'overwrite' => TRUE,
+           'overwrite' => False,
+           'encrypt_name'=> TRUE,
             );
 
             $this->load->library('upload',$config);
             $logo=$this->upload->do_upload('logo');
              $uploadData = $this->upload->data('file_name');
-              $picture="assets/upload/".$uploadData;
+              $picture="assets/upload/AddCustomer/".$uploadData;
+
             $logo = array('logo' => $picture);
 
             $pan_image=$this->upload->do_upload('pan_image');
             $uploadData1 = $this->upload->data('file_name');
-             $picture1="assets/upload/".$uploadData1;
+             $picture1="assets/upload/AddCustomer/".$uploadData1;
             $pan_image = array('pan_image' => $picture1);
            //print_r($pan_image);
             
@@ -61,7 +63,7 @@ class AddCustomer extends MY_Controller{
 
 
 
-           return redirect('addCustomer');
+           //return redirect('addCustomer');
 
         }
 
