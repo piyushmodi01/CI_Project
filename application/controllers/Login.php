@@ -57,7 +57,7 @@ class Login extends CI_Controller {
 
 
             } else {
-                $this->session->set_flashdata('login_failed','Wrong Crediantials Entered. Please Try Again.');
+                $this->session->set_flashdata('login_failed','Wrong Credentials Entered. Please Try Again.');
                 return redirect('login');
 
             }
