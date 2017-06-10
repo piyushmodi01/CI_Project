@@ -21,7 +21,7 @@ include('user_header.php');
 </ul>
 
 <div class="container ">
-    <?php echo form_open('MaintainVendorGST/saveVendorGST', ['class' => 'form-horizontal']); ?>
+    <?php echo form_open_multipart('MaintainVendorGST/saveVendorGST', ['class' => 'form-horizontal']); ?>
 
     <fieldset>
 

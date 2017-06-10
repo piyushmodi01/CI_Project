@@ -14,7 +14,7 @@
 
 
 <div class="container">
-    <?php echo form_open('AddVendor/saveVendor',['class'=>'form-horizontal','enctype'=>'multipart/form-data']); ?>
+    <?php echo form_open_multipart('AddVendor/saveVendor',['class'=>'form-horizontal','enctype'=>'multipart/form-data']); ?>
 
 
 

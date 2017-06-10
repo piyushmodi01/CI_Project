@@ -23,7 +23,7 @@ include('user_header.php');
 </ul>
 
 <div class="container ">
-    <?php echo form_open('MaintainCustomerGST/saveCustomerGST', ['class' => 'form-horizontal']); ?>
+    <?php echo form_open_multipart('MaintainCustomerGST/saveCustomerGST', ['class' => 'form-horizontal']); ?>
 
     <fieldset>
 
