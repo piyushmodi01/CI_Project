@@ -27,10 +27,10 @@ class ViewVendor extends MY_Controller
 
 
     public function changeVendorStatus($v_id){
-        $data=$this->Dbmodel->getVendorDetails($v_id);
-        if($data->status=='approved')
+        $data=$this->Dbmodel->getVendorObject($v_id);
+        if($data[0]->status=='approved')
             $this->Dbmodel->setVendorDisapproved($v_id);
-        else if($data->status=='disapproved')
+        else if($data[0]->status=='disapproved')
             $this->Dbmodel->setVendorApproved($v_id);
     }
 

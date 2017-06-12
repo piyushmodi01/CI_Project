@@ -61,7 +61,9 @@ include('admin_header.php');?>
 
                    <script type='text/javascript' language='javascript'>
                     var checkID='#'+<?php echo $id;?>;
-                    $(checkID).click(function () {
+                    
+                    $(checkID).change(function () {
+
                         $.ajax({
                             url: 'http://[::1]/ci_project/index.php/ViewVendor/changeVendorStatus/'+<?php echo $id;?>,
                             type: 'POST',
