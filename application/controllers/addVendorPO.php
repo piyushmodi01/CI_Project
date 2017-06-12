@@ -13,7 +13,7 @@ class AddVendorPO extends MY_Controller
     {
         if ($this->authorizeOnly(['user'])) {
 
-            $vendorData['data'] = $this->Dbmodel->getVendorObject(-1);
+            $vendorData['data'] = $this->Dbmodel->getApprovedVendorObject(-1);
             $vendorData['customer'] = $this->Dbmodel->getCustomerObject(-1);
 
             $this->load->view('user/add_vendor_PO', $vendorData);
@@ -71,8 +71,8 @@ class AddVendorPO extends MY_Controller
 
         $table_result = '<div id=\'result_combobox\' style="\'color:black\'">
                             <select name=\'cpo_no\' id=\'cpo_no\' class=\'form-control\'>';
-
-
+        $table_result.='<option value=\'0\'>Please Select Customer PO</option>';
+        if($data!=0)
         foreach ($data as $k) {
             $table_result .= '<option value=\'' . $k->cpo_no . '\'>' . $k->cpo_no . '  ->  RS. ' . $k->amount . '</option>';
         }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2017 at 07:46 AM
+-- Generation Time: Jun 12, 2017 at 01:22 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `customer_details` (
   `pan_image` text NOT NULL,
   `email` varchar(20) NOT NULL,
   `logo` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer_details`
@@ -43,7 +43,11 @@ CREATE TABLE IF NOT EXISTS `customer_details` (
 INSERT INTO `customer_details` (`c_id`, `name`, `address`, `pan_no`, `pan_image`, `email`, `logo`) VALUES
 (1, 'Piyush Modi', 'jaipur', 'asd213asd2', '', 'piyushmodi01@gmail.c', ''),
 (2, 'Ajay', 'Manali', '123asd1231', '', 'ajay@haha.com', ''),
-(3, 'Mr Piyush Modi', 'mansarovar', '12124545as', 'assets/upload/screenshots.jpg', 'piyush@gmail.com', 'assets/upload/');
+(3, 'Mr Piyush Modi', 'mansarovar', '12124545as', 'assets/upload/screenshots.jpg', 'piyush@gmail.com', 'assets/upload/'),
+(4, 'Piyush Modi', 'Mansaroavr, jaipur h', '12134546ad', 'assets/upload/screenshots.jpg', 'piyushmodi01@gmail.c', 'assets/upload/screenshots.jpg'),
+(5, 'Richa Kumari', 'Richa ka ghar\r\nMansa', 'apapapap12', 'assets/upload/screenshots2.jpg', 'richaaude@gmail.com', 'assets/upload/screenshots1.jpg'),
+(6, 'Shahrukh Khan', 'Mannat Mumbai meri j', 'SHA12AHAAB', 'assets/upload/0', 'shahrukh@gmail.com', 'assets/upload/0'),
+(7, 'asdasd', 'a', 'asasasasas', 'assets/upload/addCustomer_3299e0d0ca2103170cf367da2ba0a6d0.png', 'a@asas.com', 'assets/upload/addCustomer_');
 
 -- --------------------------------------------------------
 
@@ -63,10 +67,10 @@ CREATE TABLE IF NOT EXISTS `customer_gstn` (
 --
 
 INSERT INTO `customer_gstn` (`c_id`, `gstn_no`, `state`, `gstn_image`) VALUES
-(1, '123123213', 'Bihar', ''),
 (3, '345678', 'Bihar', ''),
 (1, '98765432', 'Assam', ''),
-(1, 'asdasdasda', 'Andhra Pradesh', '');
+(1, 'asdasdasda', 'Andhra Pradesh', ''),
+(1, 'gagagagagaaga', 'Gujarat', 'assets/upload/addCustomer_gstnImage_21069e3cd19746b1ed12abb1f9e736d5.png');
 
 -- --------------------------------------------------------
 
@@ -87,6 +91,8 @@ CREATE TABLE IF NOT EXISTS `customer_po` (
 --
 
 INSERT INTO `customer_po` (`c_id`, `cpo_no`, `amount`, `date`, `item_desc`) VALUES
+(1, '23423refdscx', 233, '2017-06-14', 'adasdf'),
+(1, '345678', 234567890, '2017-06-08', 'wefds'),
 (2, 'Boyash123124', 5000, '2017-06-09', 'Item Item hai');
 
 -- --------------------------------------------------------
@@ -164,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `vendor_details` (
   `fax_no` varchar(13) NOT NULL,
   `email` varchar(50) NOT NULL,
   `type` varchar(10) NOT NULL,
-  `status` varchar(10) NOT NULL DEFAULT 'unapproved'
+  `status` varchar(12) NOT NULL DEFAULT 'disapproved'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -172,11 +178,12 @@ CREATE TABLE IF NOT EXISTS `vendor_details` (
 --
 
 INSERT INTO `vendor_details` (`v_id`, `name`, `contact_person`, `address`, `country`, `landline_no`, `mobile_no`, `fax_no`, `email`, `type`, `status`) VALUES
-(1, 'asd', 'asd', 'asd', '', '', '', '', '', '', 'unapproved'),
-(2, 'Modi and Co', 'Piyush Modi', 'Mansarovar\r\nJaipur\r\n320202020asdasdasd', 'India', '9898989898', '9898989898', '', '', 'indirect', 'unapproved'),
-(3, 'Ayush and company', 'Ayush Soni', 'Bhangarghar\r\nhahahahaa\r\nhahahaha\r\nhuhuhuh', 'India', '98877787878', '9988998898', '', '', 'indirect', 'unapproved'),
-(4, 'adsas', 'sadasdasd', 'asdasdasdasdasasdasdasdasd', 'India', '', '2345676545678', '', '', 'indirect', 'unapproved'),
-(5, 'Vendor Name', 'Contact Person', ' 345tyhgfderf 345tyhgfderf 345tyhgfderf 345tyhgfderf', 'India', '', '1234567890', '', 'jhon@doe.com', 'direct', 'unapproved');
+(1, 'asd', 'asd', 'asd', '', '', '', '', '', '', 'approved'),
+(2, 'Modi and Co', 'Piyush Modi', 'Mansarovar\r\nJaipur\r\n320202020asdasdasd', 'India', '9898989898', '9898989898', '', '', 'indirect', 'disapproved'),
+(3, 'Ayush and company', 'Ayush Soni', 'Bhangarghar\r\nhahahahaa\r\nhahahaha\r\nhuhuhuh', 'India', '98877787878', '9988998898', '', '', 'indirect', 'disapproved'),
+(4, 'adsas', 'sadasdasd', 'asdasdasdasdasasdasdasdasd', 'India', '', '2345676545678', '', '', 'indirect', 'disapproved'),
+(5, 'Vendor Name', 'Contact Person', ' 345tyhgfderf 345tyhgfderf 345tyhgfderf 345tyhgfderf', 'India', '', '1234567890', '', 'jhon@doe.com', 'direct', 'disapproved'),
+(6, 'JIO Telicom', 'Jio owner', 'Antila, Mumbai\r\nMaharashtra, India', 'India', '011-2525155', '9898987451', '', '', 'indirect', 'disapproved');
 
 -- --------------------------------------------------------
 
@@ -191,6 +198,16 @@ CREATE TABLE IF NOT EXISTS `vendor_gstn` (
   `gstn_image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `vendor_gstn`
+--
+
+INSERT INTO `vendor_gstn` (`v_id`, `gstn_no`, `state`, `gstn_image`) VALUES
+(2, '098765432', 'Bihar', 'screenshots.jpg'),
+(2, '0987654321', 'Assam', ''),
+(1, '234', 'Arunachal Pradesh', ''),
+(3, '98765434567', 'Chhattisgarh', '');
+
 -- --------------------------------------------------------
 
 --
@@ -198,6 +215,7 @@ CREATE TABLE IF NOT EXISTS `vendor_gstn` (
 --
 
 CREATE TABLE IF NOT EXISTS `vendor_po` (
+  `v_id` int(5) NOT NULL,
   `cpo_no` varchar(20) NOT NULL,
   `vpo_no` varchar(20) NOT NULL,
   `amount` varchar(6) NOT NULL,
@@ -205,6 +223,17 @@ CREATE TABLE IF NOT EXISTS `vendor_po` (
   `email` varchar(50) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vendor_po`
+--
+
+INSERT INTO `vendor_po` (`v_id`, `cpo_no`, `vpo_no`, `amount`, `item_desc`, `email`, `date`) VALUES
+(3, 'Boyash123124', '234567', '23456', '2345', '', '0000-00-00'),
+(1, '23423refdscx', '222', '222', '222', '', '0000-00-00'),
+(1, '23423refdscx', '1111111', '111111', '11111111', '', '0000-00-00'),
+(1, '23423refdscx', '1111111', '111111', '11111111111111111111111111111111111111111', '11@11.com', '2017-06-01'),
+(1, '23423refdscx', '23456789', '234567', '23456', 'asdas@asdasd.co.in', '2017-06-01');
 
 --
 -- Indexes for dumped tables
@@ -229,6 +258,12 @@ ALTER TABLE `customer_po`
   ADD PRIMARY KEY (`cpo_no`);
 
 --
+-- Indexes for table `vendor_gstn`
+--
+ALTER TABLE `vendor_gstn`
+  ADD PRIMARY KEY (`gstn_no`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -236,7 +271,7 @@ ALTER TABLE `customer_po`
 -- AUTO_INCREMENT for table `customer_details`
 --
 ALTER TABLE `customer_details`
-  MODIFY `c_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `c_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

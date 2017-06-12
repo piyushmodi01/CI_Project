@@ -146,7 +146,7 @@ include('user_header.php');
 
 
                 <select id="v_id" name="v_id" class="form-control">
-                    <option value="0">Please Select Vendor</option>
+                    <option value="0">Please Select Vendor (only Approved Vendors can be seen)</option>
                     <?php
 
                     foreach ($data as $record) {

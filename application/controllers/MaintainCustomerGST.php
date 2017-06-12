@@ -33,7 +33,7 @@ class MaintainCustomerGST extends MY_Controller{
         if ($this->form_validation->run('saveCustomerGST') == true) {
 
           $config = array(
-           'upload_path' => "./assets/upload/AddCustomer",
+           'upload_path' => "./assets/upload",
            'allowed_types' => "gif|jpg|png|jpeg",
            'overwrite' => FAlSE,
            'encrypt_name'=> TRUE,
@@ -42,7 +42,7 @@ class MaintainCustomerGST extends MY_Controller{
             $this->load->library('upload',$config);
             $gstn_image=$this->upload->do_upload('gstn_image');
              $upload_gstn_image = $this->upload->data('file_name');
-              $picture_gstn_image="assets/upload/AddCustomer/".$upload_gstn_image;
+              $picture_gstn_image="assets/upload/addCustomer_gstnImage_".$upload_gstn_image;
             $gstn_image = array('gstn_image' => $picture_gstn_image);
 
             //saving Record Here

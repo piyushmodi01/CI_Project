@@ -22,7 +22,7 @@ class AddCustomer extends MY_Controller{
 
             //saving Record Here
              $config = array(
-           'upload_path' => "./assets/upload/AddCustomer",
+           'upload_path' => "./assets/upload",
            'allowed_types' => "gif|jpg|png|jpeg",
            'overwrite' => False,
            'encrypt_name'=> TRUE,
@@ -31,15 +31,15 @@ class AddCustomer extends MY_Controller{
             $this->load->library('upload',$config);
             $logo=$this->upload->do_upload('logo');
              $uploadData = $this->upload->data('file_name');
-              $picture="assets/upload/AddCustomer/".$uploadData;
+              $picture="assets/upload/addCustomer_logo_".$uploadData;
 
             $logo = array('logo' => $picture);
 
             $pan_image=$this->upload->do_upload('pan_image');
             $uploadData1 = $this->upload->data('file_name');
-             $picture1="assets/upload/AddCustomer/".$uploadData1;
+             $picture1="assets/upload/addCustomer_pan_".$uploadData1;
             $pan_image = array('pan_image' => $picture1);
-           //print_r($pan_image);
+
             
 
 
@@ -48,7 +48,7 @@ class AddCustomer extends MY_Controller{
                 unset($newCustomerData['btnSaveRecord']);
                 $newCustomerData['logo']=$logo['logo'];
                 $newCustomerData['pan_image']=$pan_image['pan_image'];
-                print_r($newCustomerData);
+
                 $lastRec=$this->Dbmodel->getLastCustomer();
                 if(isset($lastRec['c_id'])){
                     $id=$lastRec['c_id'];
@@ -63,7 +63,7 @@ class AddCustomer extends MY_Controller{
 
 
 
-           //return redirect('addCustomer');
+           return redirect('addCustomer');
 
         }
 

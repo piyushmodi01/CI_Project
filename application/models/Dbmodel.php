@@ -196,6 +196,17 @@ class Dbmodel extends CI_Model
             return($result);
         }
     }
+    //returns the object of approved Vendors
+    public function getApprovedVendorObject($v_id){
+        if($v_id==-1){
+            $result = $this->db->select('*')->from('vendor_details')->where('status','approved')->get()->result();
+            return($result);
+        }
+        else{
+            $result = $this->db->select('*')->from('vendor_details')->where(['v_id'=>$v_id,'status'=>'approved'])->get()->result();
+            return($result);
+        }
+    }
     //Return Last Array of Customer Table
     public function getLastVendor(){
         //Getting Maximum CID from Database
@@ -223,6 +234,26 @@ class Dbmodel extends CI_Model
             return 0;
         else
             return 1;
+    }
+    //returns the count of approved Vendors
+    public function getApprovedVendorCount(){
+        $data= $this->db->select("count(*)")->from("vendor_details")->where("status","approved")->get()->result_array();
+        return $data[0]["count(*)"];
+    }
+    //returns the count of approved Vendors
+    public function getDisApprovedVendorCount(){
+        $data = $this->db->select("count(*)")->from("vendor_details")->where("status","disapproved")->get()->result_array();
+        return $data[0]["count(*)"];
+    }
+    //Sets Vendor Status ON (Approved)
+    public function setVendorApproved($v_id){
+        $this->db->where('v_id',$v_id);
+        $this->db->update('vendor_details',['status'=>'approved']);
+    }
+    //Sets Vendor Status OFF (Disapproved)
+    public function setVendorDisapproved($v_id){
+        $this->db->where('v_id',$v_id);
+        $this->db->update('vendor_details',['status'=>'disapproved']);
     }
     //------------------------------------------------------------------------
 
@@ -260,7 +291,6 @@ class Dbmodel extends CI_Model
     }
     //-------------------------------------------------------------------------
 
-
 //Vendor PO NUMBER METHODS---------------------------------------------
     public function addVendorPO($dataArray)
     {
@@ -271,8 +301,11 @@ class Dbmodel extends CI_Model
             return 1;
         }
     }
-
     //-------------------------------------------------------------------------
+
+
+
+
 
 }//Model Closes here!
 ?>
