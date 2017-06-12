@@ -30,14 +30,15 @@ class AddCustomer extends MY_Controller{
 
             $this->load->library('upload',$config);
             $logo=$this->upload->do_upload('logo');
+
              $uploadData = $this->upload->data('file_name');
-              $picture="assets/upload/addCustomer_logo_".$uploadData;
+              $picture="assets/upload/".$uploadData;
 
             $logo = array('logo' => $picture);
 
             $pan_image=$this->upload->do_upload('pan_image');
             $uploadData1 = $this->upload->data('file_name');
-             $picture1="assets/upload/addCustomer_pan_".$uploadData1;
+             $picture1="assets/upload/".$uploadData1;
             $pan_image = array('pan_image' => $picture1);
 
             

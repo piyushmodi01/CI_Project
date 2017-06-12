@@ -42,7 +42,7 @@ class MaintainCustomerGST extends MY_Controller{
             $this->load->library('upload',$config);
             $gstn_image=$this->upload->do_upload('gstn_image');
              $upload_gstn_image = $this->upload->data('file_name');
-              $picture_gstn_image="assets/upload/addCustomer_gstnImage_".$upload_gstn_image;
+              $picture_gstn_image="assets/upload/".$upload_gstn_image;
             $gstn_image = array('gstn_image' => $picture_gstn_image);
 
             //saving Record Here
