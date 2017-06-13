@@ -173,6 +173,7 @@ class Dbmodel extends CI_Model
         }
     }
     //returns the array with customer details
+
     public function getVendorArray($v_id){
         $this->load->database();
         if($v_id==-1){
@@ -197,6 +198,33 @@ class Dbmodel extends CI_Model
         }
     }
     //returns the object of approved Vendors
+
+    public function getVendorExtrasArray($v_id){
+        $this->load->database();
+        if($v_id==-1){
+            $result=$this->db->select('*')->from('vendor_additional_details')->get()->result_array();
+            return($result);
+        }
+        else{
+            $result=$this->db->select('*')->from('vendor_additional_details')->where('v_id',$v_id)->get()->result_array();
+            return($result);
+        }
+    }
+    //returns the object with customer details
+    public function getVendorExtrasObject($v_id){
+        $this->load->database();
+        if($v_id==-1){
+            $result = $this->db->select('*')->from('vendor_additional_details')->get()->result();
+            return($result);
+        }
+        else{
+            $result = $this->db->select('*')->from('vendor_additional_details')->where('v_id', $v_id)->get()->result();
+            return($result);
+        }
+    }
+    //returns the object of approved Vendors
+
+
     public function getApprovedVendorObject($v_id){
         if($v_id==-1){
             $result = $this->db->select('*')->from('vendor_details')->where('status','approved')->get()->result();
