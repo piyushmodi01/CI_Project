@@ -34,7 +34,24 @@ class ViewVendor extends MY_Controller
             $this->Dbmodel->setVendorApproved($v_id);
     }
 
+    public function viewCompleteDetails($v_id)
+    {
 
+        $vendorData['basic'] = $this->Dbmodel->getVendorObject($v_id);
+        if ($vendorData['basic'][0]->type == 'direct')
+            $vendorData['extra'] = $this->Dbmodel->getVendorExtrasObject($v_id);
+
+        $this->load->view('admin/view_complete_vendor', $vendorData);
+
+    }
+
+
+    public function deleteVendor($v_id)
+    {
+        $this->Dbmodel->deleteVendor($v_id);
+        $this->session->set_flashdata('info', 'Record has been successfully Deleted.');
+        redirect('viewVendor');
+    }
 }
 
 

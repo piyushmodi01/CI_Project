@@ -8,6 +8,20 @@ include('admin_header.php');?>
     </ul>
 
 
+    <!--        Message Display    -->
+
+    <!--Message Printing after Validation -->
+<?php if ($msg = $this->session->flashdata('info')): ?>
+    <div class="alert alert-dismissible alert-info">
+        <strong>Woha!</strong> <?php echo $msg; ?>
+    </div>
+<?php endif; ?>
+
+
+    <!--        Message Display Ends Here     -->
+
+
+
 
     <h2 align="center">Vendors' List</h2>
 
@@ -27,7 +41,8 @@ include('admin_header.php');?>
             <th>#</th>
             <th>Name</th>
             <th>Address</th>
-            <th>Country</th>
+            <th>Type</th>
+            <th>Details</th>
             <th>Status</th>
         </tr>
         </thead>
@@ -49,7 +64,8 @@ include('admin_header.php');?>
                     echo "<td>".$vendorData[$totalLength]['v_id']."</td>";
                     echo "<td>".$vendorData[$totalLength]['name']."</td>";
                     echo "<td>".$vendorData[$totalLength]['address']."</td>";
-                    echo "<td>".$vendorData[$totalLength]['country']."</td>";
+                echo "<td>" . $vendorData[$totalLength]['type'] . "</td>";
+                echo "<td><a style='btn btn-link' target='_parent' href='../index.php/ViewVendor/viewCompleteDetails/$id' >View More</a></td>";
                     echo "<td><input type='checkbox' id='".$vendorData[$totalLength]['v_id']."' data-toggle=\"toggle\" ".$status."></td>";
                 echo "</tr>";
 
@@ -61,7 +77,7 @@ include('admin_header.php');?>
 
                    <script type='text/javascript' language='javascript'>
                     var checkID='#'+<?php echo $id;?>;
-                    
+
                     $(checkID).change(function () {
 
                         $.ajax({
