@@ -18,7 +18,7 @@
 
 <div class="container ">
 
-    <?php echo form_open_multipart('addCustomer/saveCustomer',['class'=>'form-horizontal']); ?>
+    <?php echo form_open_multipart('addCustomer/saveCustomer',['class'=>'form-horizontal','enctype'=>'multipart/form-data']); ?>
         <fieldset>
 
             <!-- Form Name -->
