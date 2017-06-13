@@ -65,7 +65,7 @@ include('admin_header.php');?>
                     echo "<td>".$vendorData[$totalLength]['name']."</td>";
                     echo "<td>".$vendorData[$totalLength]['address']."</td>";
                 echo "<td>" . $vendorData[$totalLength]['type'] . "</td>";
-                echo "<td><a style='btn btn-link' target='_parent' href='../index.php/ViewVendor/viewCompleteDetails/$id' >View More</a></td>";
+                echo "<td><a style='btn btn-link' target='_parent' href='../ViewVendor/viewCompleteDetails/$id' >View More</a></td>";
                     echo "<td><input type='checkbox' id='".$vendorData[$totalLength]['v_id']."' data-toggle=\"toggle\" ".$status."></td>";
                 echo "</tr>";
 

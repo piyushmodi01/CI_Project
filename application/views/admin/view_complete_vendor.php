@@ -10,7 +10,7 @@ include("admin_header.php"); ?>
 
     <ul class="breadcrumb">
         <li><a href="adminDashboard">Home</a></li>
-        <li><a href="ViewVendor">Apporve Vendor</a></li>
+        <li><a href="../">Apporve Vendor</a></li>
         <li class="active">View Complete Vendor</li>
 
     </ul>
@@ -168,8 +168,8 @@ include("admin_header.php"); ?>
                             <label class="col-md-2 control-label" for="pan_image">PAN Card Image</label>
                             <div class="col-md-5">
 
-                                <?php if (!$extra[0]->pan_image == "") { ?>
-                                    <img src="<?php echo base_url() . $extra[0]->pan_image; ?>" height="50%"
+                                <?php if (!$extra[0]->pan_image == "assets/upload/") { ?>
+                                    <img src="<?php echo base_url().$extra[0]->pan_image; ?>" height="50%"
                                          width="50%">
 
                                 <?php } else { ?>
@@ -213,8 +213,8 @@ include("admin_header.php"); ?>
                             <label class="col-md-2 control-label" for="pf_image">Provident Fund Document</label>
                             <div class="col-md-5">
 
-                                <?php if (!$extra[0]->pf_image == "") { ?>
-                                    <img src="<?php echo base_url() . $extra[0]->pf_image; ?>" height="50%" width="50%">
+                                <?php if (!$extra[0]->pf_image == "assets/upload/") { ?>
+                                    <img src="<?php echo base_url().$extra[0]->pf_image; ?>" height="50%" width="50%">
 
                                 <?php } else { ?>
                                     <label class="form-control input-md"> <?php echo "No Image Found"; ?></label>
@@ -242,8 +242,8 @@ include("admin_header.php"); ?>
                             <label class="col-md-2 control-label" for="esi_image">ESI Document</label>
                             <div class="col-md-5">
 
-                                <?php if (!$extra[0]->esi_image == "") { ?>
-                                    <img src="<?php echo base_url() . $extra[0]->esi_image; ?>" height="50%"
+                                <?php if (!$extra[0]->esi_image == "assets/upload/") { ?>
+                                    <img src="<?php echo base_url().$extra[0]->esi_image; ?>" height="50%"
                                          width="50%">
 
                                 <?php } else { ?>
@@ -303,10 +303,9 @@ include("admin_header.php"); ?>
                             <label class="col-md-2 control-label" for="cheque_image">Canceled Cheque</label>
                             <div class="col-md-5">
 
-                                <?php if (!$extra[0]->cheque_image == "") { ?>
-                                    <img src="<?php echo base_url() . $extra[0]->cheque_image; ?>" height="50%"
+                                <?php if (!$extra[0]->cheque_image == "assets/upload/") { ?>
+                                    <img src="<?php echo base_url().$extra[0]->cheque_image; ?>" height="50%"
                                          width="50%">
-
                                 <?php } else { ?>
                                     <label class="form-control input-md"> <?php echo "No Image Found"; ?></label>
 
@@ -382,7 +381,7 @@ include("admin_header.php"); ?>
             <div class="col-md-8">
 
                 <button id="btnSubmit" name="btnSubmit" class="btn btn-danger" href="">Delete Record</button>
-                <button id="BtnReset" name="BtnReset" class="btn btn-default">Close</button>
+                <button id="" name="BtnReset" class="btn btn-default" href="../">Close</button>
             </div>
         </div>
 
