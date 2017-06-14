@@ -16,7 +16,7 @@
         </div>
         <div class="panel-body">
             <div class="btn-group-justified">
-                <a href="viewCustomer" class="btn btn-default btn-lg">View</a>
+                <a href="ViewCustomer" class="btn btn-default btn-lg">View</a>
                 <a href="viewCustomerPO" class="btn btn-default btn-lg">View PO</a>
                 <a href="viewCustomerReciept" class="btn btn-default btn-lg">View Reciepts</a>
                 <a href="viewCustomerPayment" class="btn btn-default btn-lg">View Payments</a>
