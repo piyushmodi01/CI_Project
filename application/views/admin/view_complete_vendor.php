@@ -9,8 +9,8 @@ include("admin_header.php"); ?>
 
 
     <ul class="breadcrumb">
-        <li><a href="adminDashboard">Home</a></li>
-        <li><a href="../">Apporve Vendor</a></li>
+        <li><a href="<?php echo base_url('index.php/');?>adminDashboard">Home</a></li>
+        <li><a href="<?php echo base_url('index.php/');?>ViewVendor">Apporve Vendor</a></li>
         <li class="active">View Complete Vendor</li>
 
     </ul>
@@ -381,7 +381,7 @@ include("admin_header.php"); ?>
             <div class="col-md-8">
 
                 <button id="btnSubmit" name="btnSubmit" class="btn btn-danger" href="">Delete Record</button>
-                <button id="" name="BtnReset" class="btn btn-default" href="../">Close</button>
+                <a class="btn btn-default" class="btn btn-default" href="../">Close</a>
             </div>
         </div>
 

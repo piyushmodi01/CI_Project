@@ -2,7 +2,7 @@
 include('admin_header.php');?>
 
     <ul class="breadcrumb">
-        <li><a href="adminDashboard">Home</a></li>
+        <li><a href="<?php echo base_url('index.php/');?>adminDashboard">Home</a></li>
         <li class="active">Apporve Vendor</li>
 
     </ul>
@@ -65,7 +65,7 @@ include('admin_header.php');?>
                     echo "<td>".$vendorData[$totalLength]['name']."</td>";
                     echo "<td>".$vendorData[$totalLength]['address']."</td>";
                 echo "<td>" . $vendorData[$totalLength]['type'] . "</td>";
-                echo "<td><a style='btn btn-link' target='_parent' href='../ViewVendor/viewCompleteDetails/$id' >View More</a></td>";
+                echo "<td><a style='btn btn-link' target='_parent' href='ViewVendor/viewCompleteDetails/$id' >View More</a></td>";
                     echo "<td><input type='checkbox' id='".$vendorData[$totalLength]['v_id']."' data-toggle=\"toggle\" ".$status."></td>";
                 echo "</tr>";
 
