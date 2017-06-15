@@ -120,6 +120,11 @@ class Dbmodel extends CI_Model
             return $data;
 
     }
+
+    public function deleteCustomerPO($cpo_no){
+        $this->db->where('cpo_no',$cpo_no);
+        $this->db->delete('customer_po');
+    }
     //-----------------------------------------------------------------------
 
 

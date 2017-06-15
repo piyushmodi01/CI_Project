@@ -137,7 +137,7 @@ include('admin_header.php'); ?>
                 },
 
                 success: function (data) {
-                    
+
                     $('#customerData').html(data);
 
                 } // End of success function of ajax form
