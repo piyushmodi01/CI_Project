@@ -1,0 +1,3 @@
+BUG LIST
+
+1. Image not uploading in ADD CUSTOMER Form (USER)

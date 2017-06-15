@@ -9,7 +9,7 @@
 include('admin_header.php'); ?>
 
 
-
+<div id="sss"></div>
 
 <ul class="breadcrumb">
     <li><a href="<?php echo base_url('index.php/');?>adminDashboard">Home</a></li>
@@ -42,7 +42,7 @@ include('admin_header.php'); ?>
         <div class="form-group">
             <label class="col-md-2 control-label" for="name">Select Customer</label>
             <div class="col-lg-5 ">
-                <select name="c_id" class="form-control">
+                <select name="c_id" id="c_id" class="form-control">
                     <option value="">Please Select Customer</option>
                     <?php
 
@@ -56,8 +56,7 @@ include('admin_header.php'); ?>
 
 
 
-
-<div class="customerData">
+<div id="customerData">
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-2 control-label" for="name">Name</label>
@@ -125,19 +124,20 @@ include('admin_header.php'); ?>
     <script type='text/javascript' language='javascript'>
 
         $('#c_id').change(function () {
-            alert('jeu');
+
             var id=document.getElementById('c_id').value;
-            alert(id);
+
             $.ajax({
                 url: 'http://[::1]/ci_project/index.php/ViewCustomer/getCustomerDataAjax/'+id,
                 type: 'POST',
                 dataType: 'json',
                 error: function () {
+                    alert('f');
                     $('#customerData').html("<div class=\'well\'>Data Fetching Error. Please contact Developers.</div>");
                 },
 
                 success: function (data) {
-
+                    
                     $('#customerData').html(data);
 
                 } // End of success function of ajax form
