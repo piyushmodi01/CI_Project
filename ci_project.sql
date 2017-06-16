@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2017 at 01:22 PM
+-- Generation Time: Jun 16, 2017 at 11:32 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -34,20 +34,15 @@ CREATE TABLE IF NOT EXISTS `customer_details` (
   `pan_image` text NOT NULL,
   `email` varchar(20) NOT NULL,
   `logo` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customer_details`
 --
 
 INSERT INTO `customer_details` (`c_id`, `name`, `address`, `pan_no`, `pan_image`, `email`, `logo`) VALUES
-(1, 'Piyush Modi', 'jaipur', 'asd213asd2', '', 'piyushmodi01@gmail.c', ''),
-(2, 'Ajay', 'Manali', '123asd1231', '', 'ajay@haha.com', ''),
-(3, 'Mr Piyush Modi', 'mansarovar', '12124545as', 'assets/upload/screenshots.jpg', 'piyush@gmail.com', 'assets/upload/'),
-(4, 'Piyush Modi', 'Mansaroavr, jaipur h', '12134546ad', 'assets/upload/screenshots.jpg', 'piyushmodi01@gmail.c', 'assets/upload/screenshots.jpg'),
-(5, 'Richa Kumari', 'Richa ka ghar\r\nMansa', 'apapapap12', 'assets/upload/screenshots2.jpg', 'richaaude@gmail.com', 'assets/upload/screenshots1.jpg'),
-(6, 'Shahrukh Khan', 'Mannat Mumbai meri j', 'SHA12AHAAB', 'assets/upload/0', 'shahrukh@gmail.com', 'assets/upload/0'),
-(7, 'asdasd', 'a', 'asasasasas', 'assets/upload/addCustomer_3299e0d0ca2103170cf367da2ba0a6d0.png', 'a@asas.com', 'assets/upload/addCustomer_');
+(1, 'Piyush Modi', 'Sanganer\r\nNear Mansa', 'DP123MPA22', 'assets/upload/331ae9eeca52ca86decc199732c17c85.png', 'Piyush@gmail.com', 'assets/upload/102fa55f6149b8fe1958336d24b2d86b.png'),
+(12, 'E', 'FnKgFnKgFnKgFnKgFnKg', 'FnKgFnKg12', 'assets/upload/47cc0f3ea6367a5122a4a7cd23f5712d.png', 'bi@zid.com', 'assets/upload/fd3eec6a2d8ce994f6382d7c0aa174e9.png');
 
 -- --------------------------------------------------------
 
@@ -91,9 +86,8 @@ CREATE TABLE IF NOT EXISTS `customer_po` (
 --
 
 INSERT INTO `customer_po` (`c_id`, `cpo_no`, `amount`, `date`, `item_desc`) VALUES
-(1, '23423refdscx', 233, '2017-06-14', 'adasdf'),
-(1, '345678', 234567890, '2017-06-08', 'wefds'),
-(2, 'Boyash123124', 5000, '2017-06-09', 'Item Item hai');
+(2, 'Boyash123124', 5000, '2017-06-09', 'Item Item hai'),
+(1, 'dfghjnbvfg13', 2343, '2017-06-09', 'hgdhfbsndm');
 
 -- --------------------------------------------------------
 
@@ -151,7 +145,10 @@ CREATE TABLE IF NOT EXISTS `vendor_additional_details` (
 --
 
 INSERT INTO `vendor_additional_details` (`v_id`, `tan_no`, `pan_no`, `pan_image`, `company_reg_no`, `date_of_inc`, `prov_fund_no`, `pf_image`, `esi_reg_no`, `esi_image`, `invoice_currency`, `bank_name`, `bank_address`, `cheque_image`, `bank_country`, `branch_no`, `account_no`, `ifsc_code`, `swift_no`, `iban_no`) VALUES
-(5, '234567890', '2345678909876', '', '234567890987654', '0000-00-00', '23456789765432', '', '23456789', '', 'INR', 'asdasdasdasda', '  345tyhgfderf 345tyhgfderf 345tyhgfderf 345tyhgfderf', '', 'India', '23456789098765', '345678909876543', '34567890987654rfc', '', '');
+(5, '234567890', '2345678909876', '', '234567890987654', '0000-00-00', '23456789765432', '', '23456789', '', 'INR', 'asdasdasdasda', '  345tyhgfderf 345tyhgfderf 345tyhgfderf 345tyhgfderf', '', 'India', '23456789098765', '345678909876543', '34567890987654rfc', '', ''),
+(1, '0987654321', '0987654321', 'assets/upload/9744d7d7118f10f03aae3ba997d02f3d.png', '1234567890', '2017-06-21', '1234567890', 'assets/upload/19f927da33361e0a1148c259667edebe.png', '1234567890', 'assets/upload/3ad65b68a28d74dd1be507b9cffbd700.png', 'INR', 'SBI', '1234567890\r\nMansarovar\r\n1234567890', 'assets/upload/3ad65b68a28d74dd1be507b9cffbd700.png', 'India', '098765432', '09876543', '9876543', '8765432', '98765432'),
+(2, '23456789', '34567890', 'assets/upload/', '34567890', '2017-06-15', '1234567890', 'assets/upload/', '34567890-', 'assets/upload/', 'INR', 'po98765rew', 'sjkdgnsd,sdfgsdhgsjkdgnsd,sdfgsdhgsjkdgnsd,sdfgsdhgsjkdgnsd,sdfgsdhgsjkdgnsd,sdfgsdhgsjkdgnsd,sdfgsdhgsjkdgnsd,sdfgsdhg', 'assets/upload/', 'India', 'wertyuiop', '234567890', '234567890', '098765432', '34567890'),
+(3, '1234567890', '1234567890', 'assets/upload/', '123456789', '2017-06-28', '1234567890', 'assets/upload/', 'Bu', 'assets/upload/', 'INR', '1234567890', 'Vusjoveg jeba peiluhe bucuna nogu kecelga sedvigci murpovno mohescuf da to dad ese kojo to. Uwcam cuorcor ribde kafar ijdot iv jivfiblab cofkighu feneoru aj va witem honis mopipe. Kuwmuhop fuivi je iwdohu hag du nobupel ge fu ku ocarbo vohop hefacabum fepur usebum maeli. If besaj vas barco ok nerhaca rudzopwon obodieb faw tudves rivhiceb alu todekuf wehepu wofi. Pi kumal ri pu busah cu luwa gemiweb vibaz owigarki wadnet pureile pag zup nidemsi. Gebidij kadletsal geraz wuco fosanwip la urag ri noju mi ohze si ti rar pezzesfan sudpegi.', 'assets/upload/', 'India', '234567890p', '234567890', '234567890', 'Niiu', '234567890');
 
 -- --------------------------------------------------------
 
@@ -178,12 +175,8 @@ CREATE TABLE IF NOT EXISTS `vendor_details` (
 --
 
 INSERT INTO `vendor_details` (`v_id`, `name`, `contact_person`, `address`, `country`, `landline_no`, `mobile_no`, `fax_no`, `email`, `type`, `status`) VALUES
-(1, 'asd', 'asd', 'asd', '', '', '', '', '', '', 'approved'),
-(2, 'Modi and Co', 'Piyush Modi', 'Mansarovar\r\nJaipur\r\n320202020asdasdasd', 'India', '9898989898', '9898989898', '', '', 'indirect', 'disapproved'),
-(3, 'Ayush and company', 'Ayush Soni', 'Bhangarghar\r\nhahahahaa\r\nhahahaha\r\nhuhuhuh', 'India', '98877787878', '9988998898', '', '', 'indirect', 'disapproved'),
-(4, 'adsas', 'sadasdasd', 'asdasdasdasdasasdasdasdasd', 'India', '', '2345676545678', '', '', 'indirect', 'disapproved'),
-(5, 'Vendor Name', 'Contact Person', ' 345tyhgfderf 345tyhgfderf 345tyhgfderf 345tyhgfderf', 'India', '', '1234567890', '', 'jhon@doe.com', 'direct', 'disapproved'),
-(6, 'JIO Telicom', 'Jio owner', 'Antila, Mumbai\r\nMaharashtra, India', 'India', '011-2525155', '9898987451', '', '', 'indirect', 'disapproved');
+(2, 'DemoVendor', 'Demo Contact Person', 'Demo Address\r\nMansarovar\r\nJaipur\r\n3242343', 'India', '1234567890', '0987654321', '1234567890', '234567890@gaga.com', 'direct', 'approved'),
+(1, 'djfhsbdfdsjfhsbfsjhfmbsnsdmnf', 'Lgw', 'Hezud avjapid fi oc opejocali bofaok ve fulzo zatsian cobmugsi zeuhuca hucoguk okaojotuh. Lemgifev wa ze jokefcu vuk fomumop rimsu uva wa neh koc fobuz uwguh sako lugu zibvihe uz fomuc. Gas motlaide no du uho ena fen sivle ezees sizovmip zeki we ji kudom jajjetti.', 'India', 'Oaakoaaoea', 'Naaa  bhma', '1234567890', 'ek@din.co.uk', 'direct', 'disapproved');
 
 -- --------------------------------------------------------
 
@@ -229,11 +222,9 @@ CREATE TABLE IF NOT EXISTS `vendor_po` (
 --
 
 INSERT INTO `vendor_po` (`v_id`, `cpo_no`, `vpo_no`, `amount`, `item_desc`, `email`, `date`) VALUES
-(3, 'Boyash123124', '234567', '23456', '2345', '', '0000-00-00'),
-(1, '23423refdscx', '222', '222', '222', '', '0000-00-00'),
-(1, '23423refdscx', '1111111', '111111', '11111111', '', '0000-00-00'),
-(1, '23423refdscx', '1111111', '111111', '11111111111111111111111111111111111111111', '11@11.com', '2017-06-01'),
-(1, '23423refdscx', '23456789', '234567', '23456', 'asdas@asdasd.co.in', '2017-06-01');
+(1, '23423refdscx', '23456789', '234567', '23456', 'asdas@asdasd.co.in', '2017-06-01'),
+(1, 'dfghjnbvfg13', '1234567890', '123456', 'ertyujhgfdsc', 'd@gmail.com', '2017-06-19'),
+(2, 'dfghjnbvfg13', '3456', '789', '345676trew3456545', '2@aga.com', '2017-06-25');
 
 --
 -- Indexes for dumped tables
@@ -271,7 +262,7 @@ ALTER TABLE `vendor_gstn`
 -- AUTO_INCREMENT for table `customer_details`
 --
 ALTER TABLE `customer_details`
-  MODIFY `c_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `c_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
