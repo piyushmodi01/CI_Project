@@ -1,13 +1,11 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Piyush Modi
  * Date: 6/15/2017
  * Time: 3:50 PM
  */
-
-
-
 class ViewVendorPO extends MY_Controller
 {
     public function index()
@@ -19,11 +17,18 @@ class ViewVendorPO extends MY_Controller
             redirect('Login');
     }
 
-    public function deleteVendorPurchaseOrder($vpo_id){
-        $this->Dbmodel->deleteVendorPO($vpo_id);
-        $this->session->set_flashdata('info', 'Purchase Order has been Deleted Successfully.');
+    public function deleteVendorPurchaseOrder($vpo_id)
+    {
+        if ($this->authorizeOnly(['admin'])) {
+            $this->Dbmodel->deleteVendorPO($vpo_id);
+            $this->session->set_flashdata('info', 'Purchase Order has been Deleted Successfully.');
 
-        redirect('ViewVendorPO');
+            redirect('ViewVendorPO');
+        } else {
+            return redirect('Login');
+        }
+
+
     }
 
     public function getDataInAjax($c_id)
@@ -49,20 +54,20 @@ class ViewVendorPO extends MY_Controller
 
 
             if (count($data) > 0) {
-                $count=1;
+                $count = 1;
                 foreach ($data as $dataa) {
-                    $table_result.="<tr>
+                    $table_result .= "<tr>
                                         <td>$count</td>
                                         <td>$dataa->vpo_no</td>
                                         <td>$dataa->cpo_no</td>
                                         <td>$dataa->amount</td>
                                         <td>$dataa->date</td> 
                                         <td>$dataa->item_desc</td>
-                                        <td><a class='btn btn-sm btn-default' id='ChangeDate' name='$dataa->vpo_no' onclick='changeDateOf".$dataa->vpo_no."()'>Change Date</a><a href='".base_url('index.php/')."ViewVendorPO/deleteVendorPurchaseOrder/".$dataa->vpo_no."'  class='btn btn-sm btn-danger'>Delete</a></td>
+                                        <td><a class='btn btn-sm btn-default' id='ChangeDate' name='$dataa->vpo_no' onclick='changeDateOf" . $dataa->vpo_no . "()'>Change Date</a><a href='" . base_url('index.php/') . "ViewVendorPO/deleteVendorPurchaseOrder/" . $dataa->vpo_no . "'  class='btn btn-sm btn-danger'>Delete</a></td>
                     
                     ";
                     $count++;
-                    
+
                 }
                 $table_result .= '</tbody></table></div> 
                 
@@ -71,15 +76,15 @@ class ViewVendorPO extends MY_Controller
             ';
 
                 //Adding Script to change Date of PO!
-                foreach ($data as $dataa){
-                $table_result.="
+                foreach ($data as $dataa) {
+                    $table_result .= "
                 
                      
-                                function changeDateOf".$dataa->vpo_no."(){
+                                function changeDateOf" . $dataa->vpo_no . "(){
                                     var date=prompt('Please Enter the New Date (yyyy-mm-dd)','$dataa->date');
-                                    if(date==\"\" || date===".$dataa->date." || date==null || date==0){}
+                                    if(date==\"\" || date===" . $dataa->date . " || date==null || date==0){}
                                     else{
-                                        var url ='".base_url('index.php/')."ViewVendorPO/updatePODate/$dataa->vpo_no/'+date;
+                                        var url ='" . base_url('index.php/') . "ViewVendorPO/updatePODate/$dataa->vpo_no/'+date;
                                         window.location=url;
                                     }
                                     
@@ -90,7 +95,7 @@ class ViewVendorPO extends MY_Controller
 
                 }
 
-                $table_result.=" </script>";
+                $table_result .= " </script>";
 
 
                 echo json_encode($table_result);
@@ -103,22 +108,19 @@ class ViewVendorPO extends MY_Controller
     }
 
 
-    public function updatePODate($vpo_no,$newDate){
+    public function updatePODate($vpo_no, $newDate)
+    {
         if ($this->authorizeOnly(['admin'])) {
 
             //Checking Date with REGULAR EXPRESSION
-            if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$newDate))
-            {
-                $this->Dbmodel->updateVendorPODate($vpo_no,$newDate);
-                $this->session->set_flashdata('success','Date for the specific Vendor PO has been changed Successfully.');
+            if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $newDate)) {
+                $this->Dbmodel->updateVendorPODate($vpo_no, $newDate);
+                $this->session->set_flashdata('success', 'Date for the specific Vendor PO has been changed Successfully.');
 
-            }else{
-                $this->session->set_flashdata('error','Format for the Date is incorrect. Please Try Again.');
+            } else {
+                $this->session->set_flashdata('error', 'Format for the Date is incorrect. Please Try Again.');
             }
             redirect('ViewVendorPO');
-
-
-
 
 
         } else

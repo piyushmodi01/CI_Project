@@ -30,7 +30,7 @@ class UserDashboard extends CI_Controller
     {
 
         $this->session->sess_destroy();
-        redirect(base_url());
+        redirect(base_url('index.php/Login'));
 
     }
 

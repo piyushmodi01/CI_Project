@@ -24,30 +24,36 @@ class AddCustomerPO extends MY_Controller
     public function saveCustomerPO()
     {
 
-        $this->form_validation->set_error_delimiters("<p class=text-danger>", "</p>");
-        if ($this->form_validation->run('addCustomerPO') == true) {
+        if ($this->authorizeOnly(['user'])) {
+            $this->form_validation->set_error_delimiters("<p class=text-danger>", "</p>");
+            if ($this->form_validation->run('addCustomerPO') == true) {
 
-            $this->session->set_flashdata('save', 'Your Record has been Saved Successfully.');
-
-
-            //saving Record Here
+                $this->session->set_flashdata('save', 'Your Record has been Saved Successfully.');
 
 
-            $newCustomerData = $this->input->post();
-            unset($newCustomerData['btnSaveRecord']);
-
-            $this->Dbmodel->addCustomerPO($newCustomerData);
+                //saving Record Here
 
 
-            //-------------
+                $newCustomerData = $this->input->post();
+                unset($newCustomerData['btnSaveRecord']);
+
+                $this->Dbmodel->addCustomerPO($newCustomerData);
 
 
-            return redirect('addCustomerPO');
+                //-------------
+
+
+                return redirect('addCustomerPO');
+
+            } else {
+                $this->session->set_flashdata('warning', 'Please check the fields.');
+                $this->load->view('user/add_customer_PO.php');
+            }
 
         } else {
-            $this->session->set_flashdata('warning', 'Please check the fields.');
-            $this->load->view('user/add_customer_PO.php');
+            return redirect('Login');
         }
+
     }
 
 }

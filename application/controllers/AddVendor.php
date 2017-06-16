@@ -8,7 +8,7 @@ class AddVendor extends MY_Controller
         if ($this->authorizeOnly(['user']))
             $this->load->view('user/add_vendor.php');
         else
-            redirect(base_url());
+            redirect('Login');
     }
 
 
@@ -146,8 +146,9 @@ class AddVendor extends MY_Controller
             }
 
 
-        } //else
-        //     //redirect(base_url());
+        }   else{
+            return redirect('Login');
+        }
 
 
     }

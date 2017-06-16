@@ -1,13 +1,11 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Piyush Modi
  * Date: 6/15/2017
  * Time: 3:50 PM
  */
-
-
-
 class ViewCustomerPO extends MY_Controller
 {
     public function index()
@@ -19,11 +17,22 @@ class ViewCustomerPO extends MY_Controller
             redirect('Login');
     }
 
-    public function deleteCustomerPurchaseOrder($cpo_id){
-        $this->Dbmodel->deleteCustomerPO($cpo_id);
-        $this->session->set_flashdata('info', 'Purchase Order has been Deleted Successfully.');
+    public function deleteCustomerPurchaseOrder($cpo_id)
+    {
 
-        redirect('ViewCustomerPO');
+
+        if ($this->authorizeOnly(['admin'])) {
+
+
+            $this->Dbmodel->deleteCustomerPO($cpo_id);
+            $this->session->set_flashdata('info', 'Purchase Order has been Deleted Successfully.');
+
+            redirect('ViewCustomerPO');
+
+        } else {
+            return redirect('Login');
+        }
+
     }
 
     public function getDataInAjax($c_id)
@@ -48,15 +57,15 @@ class ViewCustomerPO extends MY_Controller
 
 
             if (count($data) > 0) {
-                $count=1;
+                $count = 1;
                 foreach ($data as $dataa) {
-                    $table_result.="<tr>
+                    $table_result .= "<tr>
                                         <td>$count</td>
                                         <td>$dataa->cpo_no</td>
                                         <td>$dataa->amount</td>
                                         <td>$dataa->date</td> 
                                         <td>$dataa->item_desc</td>
-                                        <td><a href='".base_url('index.php/')."ViewCustomerPO/deleteCustomerPurchaseOrder/".$dataa->cpo_no."'  class='btn btn-sm btn-danger'>Delete</a></td>
+                                        <td><a href='" . base_url('index.php/') . "ViewCustomerPO/deleteCustomerPurchaseOrder/" . $dataa->cpo_no . "'  class='btn btn-sm btn-danger'>Delete</a></td>
                     
                     ";
                     $count++;
