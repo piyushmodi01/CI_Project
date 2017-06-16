@@ -334,6 +334,26 @@ class Dbmodel extends CI_Model
             return 1;
         }
     }
+    public function getVendorPO($v_id)
+    {
+        if (!$data = $this->db->select("*")->from('vendor_PO')->where('v_id', $v_id)->get()->result())
+            return 0;
+        else
+            return $data;
+
+    }
+    public function deleteVendorPO($vpo_no){
+        $this->db->where('vpo_no',$vpo_no);
+        $this->db->delete('vendor_po');
+    }
+
+    public function updateVendorPODate($vpo_no, $newDate){
+        $data=array('date'=>$newDate);
+        $this->db->where('vpo_no',$vpo_no);
+        $this->db->update('vendor_po',$data);
+
+    }
+
     //-------------------------------------------------------------------------
 
 
